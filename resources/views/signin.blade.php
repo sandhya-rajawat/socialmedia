@@ -110,6 +110,7 @@
     <script src="assets/js/popper/popper.min.js"></script>
     <script src="assets/js/bootstrap/bootstrap.min.js"></script>
     <!-- Optional -->
+     <!-- JJ -->
     <script src="assets/js/app.js"></script>
 </body>
 
