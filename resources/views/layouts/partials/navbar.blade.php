@@ -29,9 +29,15 @@
 
     <!-- Notifications -->
     <a href="#" class="relative text-gray-600 hover:text-blue-600">
-      🔔
+<img src="{{ asset('assets/images/icons/navbar/notification.png') }}" alt="notification Icon" width="30">
+
+
+
+
       <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">3</span>
     </a>
+
+    
 
     <!-- Profile Picture -->
     <a href="#">

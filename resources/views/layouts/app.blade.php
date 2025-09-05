@@ -30,8 +30,7 @@
         @include('layouts.partials.weather-widget')
     </div>
 
-   
-  
+
 
     @vite('resources/js/app.js')
 </body>
