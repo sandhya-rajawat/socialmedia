@@ -31,6 +31,6 @@ class User extends Model implements Authenticatable
     // Automatic type casting ke liye
     protected $casts = [
         'dob' => 'datetime',
-        'email_verified_at' => 'datetime',
+       
     ];
 }
