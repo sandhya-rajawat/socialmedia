@@ -29,8 +29,15 @@ class User extends Model implements Authenticatable
     ];
 
     // Automatic type casting ke liye
-    protected $casts = [
-        'dob' => 'datetime',
-       
-    ];
+
+
+    protected function casts(): array
+    {
+        return [
+            'dob' => 'date',
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+
+        ];
+    }
 }
