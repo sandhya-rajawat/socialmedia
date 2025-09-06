@@ -5,6 +5,7 @@
 
   </div>
 
+
   <!-- Center: Search Bar -->
   <div class="flex items-center w-full max-w-md mr-100">
     <input
@@ -20,31 +21,22 @@
   <div class="flex items-center space-x-9 gap-22 ">
     <!-- Post Icon -->
     <a href="#" class="text-gray-600 hover:text-blue-600"><img src="{{url('assets/images/icons/navbar/create.png')}}" class="w-100"></a>
-
     <!-- Messages -->
     <a href="#" class="relative text-gray-600 hover:text-blue-600">
-      💬
+      <img src="{{ asset('assets/images/icons/navbar/message.png') }}" alt="message Icon" width="30">
       <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">1</span>
     </a>
-
     <!-- Notifications -->
     <a href="#" class="relative text-gray-600 hover:text-blue-600">
-<img src="{{ asset('assets/images/icons/navbar/notification.png') }}" alt="notification Icon" width="30">
-
-
-
-
+      <img src="{{ asset('assets/images/icons/navbar/notification.png') }}" alt="notification Icon" width="30">
       <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1">3</span>
     </a>
-
-    
-
     <!-- Profile Picture -->
     <a href="#">
       <img src="https://via.placeholder.com/35" alt="Profile" class="w-9 h-9 rounded-full">
     </a>
-
     <!-- Settings / Dropdown -->
-    <button class="text-gray-600 hover:text-blue-600">⚙️</button>
+    <button class="text-gray-600 hover:text-blue-600"><img src="{{ asset('assets/images/icons/navbar/settings.png') }}" alt="settings Icon" width="30"></button>
   </div>
+  
 </header>
