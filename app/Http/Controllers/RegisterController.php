@@ -30,7 +30,7 @@ class RegisterController extends Controller
         $user = User::create($userinfo);
 
         if ($user) {
-            return redirect()->route('login.form')->with('success', 'Account created! Please log in.');
+            return redirect()->route('login')->with('success', 'Account created! Please log in.');
         } else {
             return back()->with('error', 'Failed to create account!');
         }

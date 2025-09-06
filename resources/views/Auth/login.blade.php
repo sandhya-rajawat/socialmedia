@@ -37,7 +37,7 @@
                         </div>
                     </div>
                 </div>
-                <form action="{{route('login.submit')}}" method="post">
+                <form action="{{route('login')}}" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-md-12">

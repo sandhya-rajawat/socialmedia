@@ -21,4 +21,16 @@ class User extends Model implements Authenticatable
         'dob',
         'password',
     ];
+
+    // Sensitive fields ko hide karne ke liye
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
+
+    // Automatic type casting ke liye
+    protected $casts = [
+        'dob' => 'datetime',
+        'email_verified_at' => 'datetime',
+    ];
 }
