@@ -1,13 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\IndexController;
 
-Route::get('index', function () {
-    return view('index');
-})->name('home');
 
-Route::get('signin',[AuthController::class,'createSignIn']);
-Route::post('signin',[AuthController::class,'loginUser']);
-Route::get('signup',[AuthController::class,'createSignUp']);
-Route::post('signup',[AuthController::class,'store']);
+Route::get('signup', [RegisterController::class, 'create'])->name('register.form');
+Route::post('signup', [RegisterController::class, 'store'])->name('register.submit');
+
+Route::get('signin', [LoginController::class, 'create'])->name('login.form');
+Route::post('signin', [LoginController::class, 'store'])->name('login.submit');
+
+Route::get('index', [IndexController::class, 'create'])->name('home');
