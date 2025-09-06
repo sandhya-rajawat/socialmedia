@@ -71,8 +71,8 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                
-                                    <select name="month" class="form-control">
+
+                                <select name="month" class="form-control">
                                     <option value="">- Select Month -</option>
                                     <option value="1">January</option>
                                     <option value="2">February</option>
@@ -86,7 +86,7 @@
                                     <option value="10">October</option>
                                     <option value="11">November</option>
                                     <option value="12">December</option>
-                                    </select>
+                                </select>
 
 
                             </div>

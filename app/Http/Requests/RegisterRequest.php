@@ -23,13 +23,13 @@ class RegisterRequest extends FormRequest
     {
         return [
             'firstname' => 'required|string|max:255',
-            'lastname'  => 'required|string|max:255',
-            'email'     => 'required|email|unique:users,email',
-            'phone'     => 'nullable|string|max:10',
-            'day'       => 'required|integer|min:1|max:31',
-            'month'     => 'required|integer|min:1|max:12',
-            'year'      => 'required|integer|min:1900|max:' . date('Y'),
-            'password'  => 'required|string|min:6|confirmed',
+            'lastname' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'phone' => 'nullable|string|max:10',
+            'day' => 'required|integer|min:1|max:31',
+            'month' => 'required|integer|min:1|max:12',
+            'year' => 'required|integer|min:1900|max:'.date('Y'),
+            'password' => 'required|string|min:6|confirmed',
 
         ];
     }
