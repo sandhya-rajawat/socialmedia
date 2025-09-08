@@ -5,36 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'My App')</title>
-    @vite('resources/css/app.css')
+    <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/components.css" rel="stylesheet">
+    <link href="assets/css/auth.css" rel="stylesheet">
+    <link href="assets/css/forms.css" rel="stylesheet">
+    <link href="assets/css/media.css" rel="stylesheet">
+
 </head>
 
 <body class="bg-gray-100">
 
-    <!-- Navbar -->
+
     @include('layouts.partials.navbar')
 
-    <div class="flex">
+
+
+    <div class="row mt-3">
+
         <!-- Sidebar -->
-        @include('layouts.partials.sidebar')
+        <div class="col-md-3 sticky-top shadow-sm" id="sidebar-wrapper">
+            @include('layouts.partials.sidebar')
+        </div>
 
-        <!-- Page Content -->
-        <!-- Main Content -->
-
-
-        <div class="flex-1 p-6">
+        <!-- Content -->
+        <div class="col-md-9">
             @yield('content')
         </div>
-        <!-- Right Sidebar -->
+
 
 
     </div>
-    <div class="w-1/4 p-4">
+    <!-- Right Widget -->
+    <div class="mt-4">
         @include('layouts.partials.weather-widget')
     </div>
 
 
 
-    @vite('resources/js/app.js')
+
 </body>
 
 </html>
