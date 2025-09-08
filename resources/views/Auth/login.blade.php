@@ -1,38 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.auth')
+@section('title', 'Login')
+@section('content')
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" type="image/png" href="assets/images/logo-16x16.png" />
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Argon - Social Network</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet">
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@1.9.2/css/boxicons.min.css' rel='stylesheet'>
-
-    <!-- Styles -->
-    <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/components.css" rel="stylesheet">
-    <link href="assets/css/auth.css" rel="stylesheet">
-    <link href="assets/css/forms.css" rel="stylesheet">
-    <link href="assets/css/media.css" rel="stylesheet">
-</head>
-
-<body>
     <div class="row ht-100v flex-row-reverse no-gutters">
         <div class="col-md-6 d-flex justify-content-center align-items-center">
             <div class="signup-form">
                 <div class="auth-logo text-center mb-5">
                     <div class="row">
                         <div class="col-md-2">
-                            <img src="assets/images/logo-64x64.png" class="logo-img" alt="Logo">
+                         <img src="assets/images/logo.png" class="logo-img " style="width: 85px; height: 85px;" alt="Logo">
                         </div>
                         <div class="col-md-10">
-                            <p>Argon Social Network</p>
+                            <p>LinkUp</p>
                             <span>Design System</span>
                         </div>
                     </div>
@@ -105,12 +84,4 @@
         </div>
     </div>
 
-    <!-- Core -->
-    <script src="assets/js/jquery/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/popper/popper.min.js"></script>
-    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
-    <!-- Optional -->
-    <script src="assets/js/app.js"></script>
-</body>
-
-</html>
+@endsection('content')
