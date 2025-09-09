@@ -31,7 +31,7 @@
     </div>
   </div>
   @include('layouts.post-form')
-  
+
   <!-- Posts -->
   <div class="posts-section mb-5">
     <div class="post border-bottom p-3 bg-white w-shadow">
@@ -114,7 +114,7 @@
                     <div class="col-md-2">
                       <i class="bx bx-block post-option-icon"></i>
                     </div>
-                  
+
                     <div class="col-md-10">
                       <span class="fs-9">Report</span>
                       <small
