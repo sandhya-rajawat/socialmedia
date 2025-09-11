@@ -1,8 +1,11 @@
+
+
 .form-control {
     border-radius: 0px;
     padding: .75rem 1rem;
     border: 1px solid #ccc;
     font-size: .8em;
+    
 }
 
 .form-control:focus {
@@ -370,3 +373,7 @@
     top: 1rem;
     left: 1.25rem;
 }
+
+
+
+

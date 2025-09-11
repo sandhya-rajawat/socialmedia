@@ -97,7 +97,8 @@
                         <p class="agree-privacy">By clicking the Sign Up button below you agreed to our privacy policy and terms of use of our website.</p>
                     </div>
                     <div class="col-md-6">
-                        <span class="go-login">Already a member? <a href="sign-in.html">Sign In</a></span>
+
+                        <span class="go-login">Already a member? <a href="{{route('login')}}">Sign In</a></span>
                     </div>
                     <div class="col-md-6 text-right">
                         <div class="form-group">

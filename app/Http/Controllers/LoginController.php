@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -18,12 +19,13 @@ class LoginController extends Controller
 
     public function store(LoginRequest $request): RedirectResponse
     {
-        $userinfo = User::Where('email', $request->email)->first();
-        if ($userinfo && Hash::check($request->password, $userinfo->password)) {
-            Session::put('user_id', $userinfo->id);
 
-            return redirect()->route('home')->with('success', 'Welcome to the homepage!');
+        $details=$request->only('email','password');
+        if(Auth::attempt($details)){
+            $request->session()->regenerate();
+            return redirect()->route('home')->with('success','welcome!');
         }
+      
 
         return back()->with('error', 'Invalid Email or Password');
     }
