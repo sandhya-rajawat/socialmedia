@@ -24,7 +24,7 @@ class PostController extends Controller
         $post->load('user');
         return response()->json([
             'success' => true,
-            'post'    => $post
+            'post'    => $post->load('user')
         ]);
     }
 }

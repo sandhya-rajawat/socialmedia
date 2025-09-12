@@ -13,14 +13,5 @@
 
   <!-- Post Form -->
   @include('layouts.post-form')
-
-  <!-- Posts -->
-  <div class="posts-section mb-5">
-  
-      @include('layouts.post')
- 
-  </div>
-
 </div>
-
 @endsection
