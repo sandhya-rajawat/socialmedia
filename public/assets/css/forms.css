@@ -4,19 +4,15 @@
     border: 1px solid #ccc;
     font-size: .8em;
 }
-
 .form-control:focus {
     border-color: #ccc;
 }
-
 .custom-control.material-checkbox {
     --color: #26a69a;
 }
-
 .custom-control.material-checkbox .material-control-input {
     display: none;
 }
-
 .custom-control.material-checkbox .material-control-input:checked ~ .material-control-indicator {
     border-color: var(--color);
     transform: rotateZ(45deg) translate(1px, -5px);
@@ -367,6 +363,10 @@
 .list-group .list-group-control .custom-control .material-control-indicator,
 .list-group .list-group-control .custom-control .fill-control-indicator,
 .list-group .list-group-control .custom-control .overflow-control-indicator {
-    top: 1rem;
-    left: 1.25rem;
+   top: 1rem;
+   left: 1.25rem;
 }
+
+
+
+
