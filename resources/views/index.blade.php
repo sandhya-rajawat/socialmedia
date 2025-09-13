@@ -10,8 +10,8 @@
       <!-- ...buttons... -->
     </div>
   </div>
-
   <!-- Post Form -->
   @include('layouts.post-form')
 </div>
+
 @endsection
