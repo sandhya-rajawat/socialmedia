@@ -197,7 +197,7 @@
     const $likeIcon = $this.closest('.argon-reaction').find('.like-icon');
     $.ajax({
       type: 'POST',
-      url: `/posts/${postId}/likes`,
+      url: "{{route('/posts/${postId}/likes')}}",
       data: {
         _token: "{{ csrf_token() }}"
       },

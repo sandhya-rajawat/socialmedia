@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Post extends Model
 {
@@ -19,13 +20,10 @@ class Post extends Model
         return $this->hasMany(PostLike::class);
     }
 
-    public function getIsLikedAttribute(){
-        $userId=Auth::id();
-        if(!$userId){
-            return false;
-
-
-        }
-          return $this->likes()->where('user_id', $userId)->exists();
+    public function isLiked(): Attribute
+    {
+        return Attribute::make(
+            get: fn() => $this->likes()->where('user_id', Auth::id())->exists()
+        );
     }
 }
