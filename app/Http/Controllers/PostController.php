@@ -11,7 +11,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('user')->latest()->get();
+        $userId = Auth::id();
+        $posts = Post::with('user')->withCount('likes')->latest()->get();
         return response()->json(['posts' => $posts]);
     }
 
@@ -21,7 +22,8 @@ class PostController extends Controller
             'user_id' => Auth::id(),
             'content' => $request->content
         ]);
-        $post->load('user');
+        $post->load('user')->loadCount('Likes');
+        $post->is_liked = false;
         return response()->json([
             'success' => true,
             'post'    => $post
