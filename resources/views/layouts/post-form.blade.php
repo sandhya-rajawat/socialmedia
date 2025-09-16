@@ -195,9 +195,11 @@
     const postId = $this.data('post-id');
     const $likeCount = $this.closest('.argon-reaction').find('.like-count');
     const $likeIcon = $this.closest('.argon-reaction').find('.like-icon');
+    let likeUrl = "{{ route('posts.likes.store', ':post') }}";
+    likeUrl = likeUrl.replace(':post', postId);
     $.ajax({
       type: 'POST',
-      url: "{{route('/posts/${postId}/likes')}}",
+      url: likeUrl,
       data: {
         _token: "{{ csrf_token() }}"
       },

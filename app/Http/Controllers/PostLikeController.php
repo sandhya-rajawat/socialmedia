@@ -21,7 +21,7 @@ class PostLikeController extends Controller
             $post->decrement('like_count');
             return response()->json([
                 'success' => true,
-            'is_liked' => false,
+                'is_liked' => false,
                 'likes_count' => $post->like_count,
             ]);
         }
