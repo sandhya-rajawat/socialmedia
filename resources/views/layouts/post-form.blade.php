@@ -48,6 +48,7 @@
     </div>
   </li>
 </ul>
+
 <!-- Posts Container -->
 <div id="post-container" class="posts-section">
   {{-- Posts appended here --}}
@@ -55,6 +56,8 @@
 <script>
   // Helper function to render a post's HTML
   function renderPost(post) {
+
+    const likeIcon=post.is_liked ?"/assets/images/profile_post/like.png":"/assets/images/profile_post/unlike.png";
     return `
        <div class="post border-bottom p-3 bg-white w-shadow mb-3">
        <div class="media text-muted pt-3">
@@ -80,7 +83,8 @@
                     <div class="argon-reaction">
                       <span class="like-btn">
                 <a href="#" class="likebtn" data-post-id="${post.id}">
-               <img src="assets/images/profile_post/unlike.png" width="20" class="like-icon" />
+                
+               <img src="${likeIcon}" width="20" class="like-icon" />
                <i class="bx bxs-like mr-2"></i> 
               <span class="like-count">${post.like_count ?? 0}</span>
                 </a>
