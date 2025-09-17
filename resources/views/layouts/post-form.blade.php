@@ -57,9 +57,9 @@
   // Helper function to render a post's HTML
   function renderPost(post) {
 
-    const likeIcon=post.is_liked ?"/assets/images/profile_post/like.png":"/assets/images/profile_post/unlike.png";
+    const likeIcon = post.is_liked ? "/assets/images/profile_post/like.png" : "/assets/images/profile_post/unlike.png";
     return `
-       <div class="post border-bottom p-3 bg-white w-shadow mb-3">
+     <div class="post border-bottom p-3 bg-white w-shadow mb-3">
        <div class="media text-muted pt-3">
         <img src="assets/images/users/user-1.jpg" alt="User" class="mr-3 post-user-image rounded-circle" width="50" />
           <div class="media-body pb-3 mb-0 small lh-125">
@@ -90,12 +90,13 @@
                 </a>
                   </span>
                     </div>
-                   <a
-                      href="javascript:void(0)"
-                      class="post-card-buttons"
-                      id="show-comments"
-                      ><i class="bx bx-message-rounded mr-2"></i> 5</a
-                    >
+                 <a href="javascript:void(0)" 
+              class="post-card-buttons show-comments-btn" 
+              data-post-id="${post.id}">
+            <i class="bx bx-message-rounded mr-2">
+             <img src="assets/images/profile_post/chat.png" alt="chat" width="25">
+              </i>5
+               </a>
                   
                     <div class="dropdown dropup share-dropup">
                       <a
@@ -107,41 +108,214 @@
                       >
                         <i class="bx bx-share-alt mr-2"></i> Share
                       </a>
-                      <div class="dropdown-menu post-dropdown-menu">
-                        <a href="#" class="dropdown-item">
-                          <div class="row">
-                            <div class="col-md-2">
-                              <i class="bx bx-share-alt"></i>
-                            </div>
-                            <div class="col-md-10">
-                              <span>Share Now (Public)</span>
+                   
+                  </div>
+                
+                   
+
+                   
+                   <div
+                  id="comments-${post.id}"
+                    class="border-top pt-3  ">
+                    <div class="row bootstrap snippets">
+                      <div class="col-md-12">
+                        <div class="comment-wrapper">
+                          <div class="panel panel-info">
+                            <div class="panel-body">
+                              <ul class="media-list comments-list">
+                                <li class="media comment-form">
+                                  <a href="#" class="pull-left">
+                                 
+                                    <img
+                                      src="assets/images/users/user-4.jpg"
+                                      alt=""
+                                      class="img-circle"
+                                    />
+                                  </a>
+                                  <div class="media-body">
+                                    <form action="" method="" role="form">
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                          <div class="input-group">
+                                            <input
+                                              type="text"
+                                              class="form-control comment-input"
+                                              placeholder="Write a comment..."
+                                            /> <button type="submit" 
+                                            class="comment-submit" 
+                                           data-post-id="${post.id}"  
+                                         style="border:none; background:none; padding:0; cursor:pointer; display:none;">
+                                       <img src="assets/images/profile_post/up.png" style="width:20px; height:20px;" alt="upload">
+                                     </button>
+                                       
+ 
+                                            <div class="input-group-btn">
+                                          
+                                              <button
+                                                type="button" 
+                                                class="btn comment-form-btn"
+                                                data-toggle="tooltip"
+                                                data-placement="top"
+                                                title="Tooltip on top"
+                                              >
+                                                <i
+                                                  class="bx bxs-smiley-happy"
+                                                ></i>
+                                              </button>
+                                              <button
+                                                type="button"
+                                                class="btn comment-form-btn comment-form-btn"
+                                                data-toggle="tooltip"
+                                                data-placement="top"
+                                                title="Tooltip on top"
+                                              >
+                                                <i class="bx bx-camera"></i>
+                                              </button>
+                                              <button
+                                                type="button"
+                                                class="btn comment-form-btn comment-form-btn"
+                                                data-toggle="tooltip"
+                                                data-placement="top"
+                                                title="Tooltip on top"
+                                              >
+                                                <i class="bx bx-microphone"></i>
+                                              </button>
+                                              <button
+                                                type="button"
+                                                class="btn comment-form-btn"
+                                                data-toggle="tooltip"
+                                                data-placement="top"
+                                                title="Tooltip on top"
+                                              >
+                                                <i class="bx bx-file-blank"></i>
+                                              </button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </li>
+                                <li class="media" >
+                                  <a href="#" class="pull-left">
+                                    <img
+                                      src="assets/images/users/user-2.jpg"
+                                      alt=""
+                                      class="img-circle"
+                                    />
+                                  </a>
+                                  <div class="media-body">
+                                    <div
+                                      class="d-flex justify-content-between align-items-center w-100"
+                                    >
+                                      <strong class="text-gray-dark"
+                                        ><a href="#" class="fs-8"
+                                          >Karen Minas</a
+                                     
+                                        ></strong
+                                      >
+                                      <a href="#"
+                                        ><i
+                                          class="bx bx-dots-horizontal-rounded"
+                                        ></i
+                                      ></a>
+                                    </div>
+                                    <span class="d-block comment-created-time"
+                                      >30 min ago</span
+                                    >
+                                    <p class="fs-8 pt-2">
+                                      Lorem ipsum dolor sit amet, consectetur
+                                      adipiscing elit. Lorem ipsum dolor sit
+                                      amet,
+                                      <a href="#">#consecteturadipiscing </a>.
+                                    </p>
+                                    <div class="commentLR">
+                                      <button
+                                        type="button"
+                                        class="btn btn-link fs-8"
+                                      >
+                                        Like
+                                      </button>
+                                      <button
+                                        type="button"
+                                        class="btn btn-link fs-8"
+                                      >
+                                        Reply
+                                      </button>
+                                    </div>
+                                  </div>
+                                </li>
+                                <li class="media">
+                                  <a href="#" class="pull-left">
+                                    <img
+                                      src="https://bootdey.com/img/Content/user_2.jpg"
+                                      alt=""
+                                      class="img-circle"
+                                    />
+                                  </a>
+                                  <div class="media-body">
+                                    <div
+                                      class="d-flex justify-content-between align-items-center w-100"
+                                    >
+                                      <strong class="text-gray-dark"
+                                        ><a href="#" class="fs-8"
+                                          >Lia Earnest</a
+                                        ></strong
+                                      >
+                                      <a href="#"
+                                        ><i
+                                          class="bx bx-dots-horizontal-rounded"
+                                        ></i
+                                      ></a>
+                                    </div>
+                                    <span class="d-block comment-created-time"
+                                      >2 hours ago</span
+                                    >
+                                    <p class="fs-8 pt-2">
+                                      Lorem ipsum dolor sit amet, consectetur
+                                      adipiscing elit. Lorem ipsum dolor sit
+                                      amet,
+                                      <a href="#">#consecteturadipiscing </a>.
+                                    </p>
+                                    <div class="commentLR">
+                                      <button
+                                        type="button"
+                                        class="btn btn-link fs-8"
+                                      >
+                                        Like
+                                      </button>
+                                      <button
+                                        type="button"
+                                        class="btn btn-link fs-8"
+                                      >
+                                        Reply
+                                      </button>
+                                    </div>
+                                  </div>
+                                </li>
+                              
+                                <li class="media">
+                                  <div class="media-body">
+                                    <div class="comment-see-more text-center">
+                                      <button
+                                        type="button"
+                                        class="btn btn-link fs-8"
+                                      >
+                                        See More
+                                      </button>
+                                    </div>
+                                  </div>
+                                </li>
+                              </ul>
                             </div>
                           </div>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                          <div class="row">
-                            <div class="col-md-2">
-                              <i class="bx bx-share-alt"></i>
-                            </div>
-                            <div class="col-md-10">
-                              <span>Share</span>
-                            </div>
-                          </div>
-                        </a>
-                        <a href="#" class="dropdown-item">
-                          <div class="row">
-                            <div class="col-md-2">
-                              <i class="bx bx-message"></i>
-                            </div>
-                            <div class="col-md-10">
-                              <span>Send as Message</span>
-                            </div>
-                          </div>
-                        </a>
+                        </div>
                       </div>
                     </div>
-                  </div> </div>
-                  `;
+                  </div>
+                </div>
+                
+                `;
   }
   $(document).ready(function() {
     // Fetch posts on page load
@@ -225,6 +399,50 @@
       error: function(response) {
         console.error('Something went wrong while liking the post.');
       }
+    });
+  });
+  // Post_comment...................
+  $(document).ready(function() {
+    $(document).on("input", ".comment-input", function() {
+      let $btn = $(this).closest(".input-group").find(".comment-submit");
+      if ($(this).val().trim() !== "") {
+        $btn.show();
+      } else {
+        $btn.hide();
+      }
+    });
+    $(document).on("click", ".show-comments-btn", function(e) {
+      e.preventDefault();
+      let postId = $(this).data("post-id");
+      $(`#comments-${postId}`).toggle();
+    });
+
+    $(document).on("click", ".comment-submit", function(e) {
+      e.preventDefault();
+      let postId = $(this).data("post-id");
+      let $input = $(this).closest(".input-group").find(".comment-input");
+      let content = $input.val().trim();
+      if (content === "") return;
+      let CommentUrl = "{{ route('posts.comments.store', ':post') }}";
+      CommentUrl = CommentUrl.replace(':post', postId);
+      // console.log(postId, content, CommentUrl); 
+      $.ajax({
+        type: "POST",
+        url: CommentUrl,
+        data: {
+          _token: "{{ csrf_token() }}",
+          content: content
+        },
+        success: function(response) {
+          if (response.success) {
+            console.log(" Comment saved:", response);
+            $input.val("");
+          }
+        },
+        error: function(xhr) {
+          console.log(" Error:", xhr.responseText);
+        }
+      });
     });
   });
 </script>
