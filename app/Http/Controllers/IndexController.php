@@ -8,6 +8,6 @@ class IndexController extends Controller
 {
     public function create(): View
     {
-        return view('posts.index');
+        return view('index.index');
     }
 }

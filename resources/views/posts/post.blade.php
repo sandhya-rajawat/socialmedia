@@ -1,4 +1,4 @@
-<div class="col-md-6 second-section" id="page-content-wrapper">
+<div class="col-md-12 second-section" id="page-content-wrapper">
   <div class="mb-3">
     <div class="btn-group d-flex">
       <a
@@ -378,6 +378,7 @@
           type="video/webm" />
       </video>
     </div>
+
 
 
 
