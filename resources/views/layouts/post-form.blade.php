@@ -224,9 +224,7 @@
                                       >30 min ago</span
                                     >
                                     <p class="fs-8 pt-2">
-                                      Lorem ipsum dolor sit amet, consectetur
-                                      adipiscing elit. Lorem ipsum dolor sit
-                                      amet,
+                                    lrmgggggggggggggggggggggggggggggggggggggggggggggggggg
                                       <a href="#">#consecteturadipiscing </a>.
                                     </p>
                                     <div class="commentLR">
@@ -244,55 +242,8 @@
                                       </button>
                                     </div>
                                   </div>
-                                </li>
-                                <li class="media">
-                                  <a href="#" class="pull-left">
-                                    <img
-                                      src="https://bootdey.com/img/Content/user_2.jpg"
-                                      alt=""
-                                      class="img-circle"
-                                    />
-                                  </a>
-                                  <div class="media-body">
-                                    <div
-                                      class="d-flex justify-content-between align-items-center w-100"
-                                    >
-                                      <strong class="text-gray-dark"
-                                        ><a href="#" class="fs-8"
-                                          >Lia Earnest</a
-                                        ></strong
-                                      >
-                                      <a href="#"
-                                        ><i
-                                          class="bx bx-dots-horizontal-rounded"
-                                        ></i
-                                      ></a>
-                                    </div>
-                                    <span class="d-block comment-created-time"
-                                      >2 hours ago</span
-                                    >
-                                    <p class="fs-8 pt-2">
-                                      Lorem ipsum dolor sit amet, consectetur
-                                      adipiscing elit. Lorem ipsum dolor sit
-                                      amet,
-                                      <a href="#">#consecteturadipiscing </a>.
-                                    </p>
-                                    <div class="commentLR">
-                                      <button
-                                        type="button"
-                                        class="btn btn-link fs-8"
-                                      >
-                                        Like
-                                      </button>
-                                      <button
-                                        type="button"
-                                        class="btn btn-link fs-8"
-                                      >
-                                        Reply
-                                      </button>
-                                    </div>
-                                  </div>
-                                </li>
+                                </li> 
+            
                               
                                 <li class="media">
                                   <div class="media-body">
@@ -364,11 +315,9 @@
     });
 
   });
-
-  // like_system
+// like_system
   $(document).on('click', '.likebtn', function(e) {
     e.preventDefault();
-
     const $this = $(this);
     const postId = $this.data('post-id');
     const $likeCount = $this.closest('.argon-reaction').find('.like-count');
@@ -384,10 +333,8 @@
       success: function(response) {
         // Update the like count
         if (response.success) {
-
           const newCount = response.likes_count;
           const status = response.status;
-
           $likeCount.text(newCount);
           if (response.is_liked === true) {
             $likeIcon.attr('src', '/assets/images/profile_post/like.png');
@@ -403,6 +350,27 @@
   });
   // Post_comment...................
   $(document).ready(function() {
+    function fetchcomment(postId) {
+      // let postId = $(this).data("post-id");
+      let commenturl = "{{ route('posts.comments.index', ':post') }}";
+      commenturl = commenturl.replace(':post', postId);
+      console.log(commenturl);
+      $.ajax({
+        type: "GET",
+        url: commenturl,
+        success: function(response) {
+          if (response.success && response.comments.length > 0) {
+            let lastComment = response.comments[0];
+            let $list = $(`#comments-${postId}`).find(".comments-list");
+            $list.append(renderComment(lastComment));
+          }
+        },
+        error: function(err) {
+          console.log('error');
+        }
+      })
+    }
+    fetchcomment();
     $(document).on("input", ".comment-input", function() {
       let $btn = $(this).closest(".input-group").find(".comment-submit");
       if ($(this).val().trim() !== "") {

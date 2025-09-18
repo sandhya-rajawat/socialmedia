@@ -26,7 +26,7 @@ class Post extends Model
             get: fn() => $this->likes()->where('user_id', Auth::id())->exists()
         );
     }
-     public function Comments()
+     public function comments()
     {
         return $this->hasMany(PostComment::class);
     }

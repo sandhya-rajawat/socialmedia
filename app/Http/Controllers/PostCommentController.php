@@ -14,18 +14,18 @@ class PostCommentController extends Controller
 {
     public function index(Post $post)
     {
-        $comments = $post->Comments()->with('user')->latest()->get();
+        $comments = $post->comments()->with('user')->latest()->get();
         return response()->json([
             'success' => true,
             'comments' => $comments,
         ]);
     }
-    public function store(PostCommentRequest $rst, Post $post)
+    public function store(PostCommentRequest $request, Post $post)
     {
         $content = PostComment::create([
             'post_id' => $post->id,
             'user_id' => Auth::id(),
-            'content' => $rst->content,
+            'content' => $request->content,
         ]);
         $content->load('user');
         return response()->json([
