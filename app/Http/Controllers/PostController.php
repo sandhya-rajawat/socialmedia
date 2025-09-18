@@ -12,8 +12,8 @@ class PostController extends Controller
     public function index()
     {
         $userId = Auth::id();
-        $posts = Post::with('user')->withCount('likes')->latest()->get();
-        return response()->json(['posts' => $posts]);
+        $posts = Post::with('user', 'likes', 'comments.user')->withCount('likes')->latest()->get();
+        return view('posts.index', compact('posts'));
     }
 
     public function store(PostRequest $request)
@@ -22,11 +22,12 @@ class PostController extends Controller
             'user_id' => Auth::id(),
             'content' => $request->content
         ]);
-        $post->load('user')->loadCount('Likes');
+        $post->load('user', 'comments.user')->loadCount('Likes');
         $post->is_liked = false;
+        $postHtml = view('posts.post', compact('post'))->render();
         return response()->json([
             'success' => true,
-            'post'    => $post
+            'html' => $postHtml
         ]);
     }
 }
