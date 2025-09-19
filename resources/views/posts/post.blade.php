@@ -113,19 +113,21 @@
 
         </span>
       </div>
-      <a
-        href="javascript:void(0)"
-        class="post-card-buttons"
-        id="show-comments"><i class="bx bx-message-rounded mr-2"></i> 5</a>
+      <button class="post-card-buttons" id="show-comments" type="button"
+        style="border: none; background:none;">
+        <img src="assets/images/profile_post/chat.png" alt="chat" width="25" class="mr-2"
+          style="background: none; cursor: pointer;" />
+        5
+      </button>
       <div class="dropdown dropup share-dropup">
-        <a
+        <a"
           href="#"
           class="post-card-buttons"
           data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false">
           <i class="bx bx-share-alt mr-2"></i> Share
-        </a>
+          </a>
       </div>
     </div>
     <!-- pp -->
@@ -153,7 +155,6 @@
                                 type="text"
                                 class="form-control comment-input"
                                 placeholder="Write a comment..." />
-
                               <div class="input-group-btn">
                                 <button
                                   type="button"
@@ -161,9 +162,7 @@
                                   data-toggle="tooltip"
                                   data-placement="top"
                                   title="Tooltip on top">
-                                  <i
-                                    class="bx bxs-smiley-happy"></i>
-                                </button>
+                                  <i class="bx bxs-smiley-happy"></i></button>
                                 <button
                                   type="button"
                                   class="btn comment-form-btn comment-form-btn"
@@ -195,76 +194,37 @@
                       </form>
                     </div>
                   </li>
-                  <li class="media">
-                    <a href="#" class="pull-left">
-                      <img
-                        src="assets/images/users/user-2.jpg"
-                        alt=""
-                        class="img-circle" />
-                    </a>
-                    <div class="media-body">
-                      <div
-                        class="d-flex justify-content-between align-items-center w-100">
-                        <strong class="text-gray-dark"><a href="#" class="fs-8">Karen Minas</a></strong>
-                        <a href="#"><i
-                            class="bx bx-dots-horizontal-rounded"></i></a>
+                  <ul class="list-unstyled">
+                    @foreach ($post->comments as $comment)
+                    <li class="media">
+                      <a href="#" class="pull-left">
+                        <img
+                          src="{{ $comment->user->profile_photo ?? asset('assets/images/users/default.jpg') }}"
+                          alt="{{ $comment->user->name }}"
+                          class="img-circle" />
+                      </a>
+                      <div class="media-body">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                          <strong class="text-gray-dark">
+                            <a href="#" class="fs-8">{{ $comment->user->first_name }}</a>
+                          </strong>
+                          <a href="#"><i class="bx bx-dots-horizontal-rounded"></i></a>
+                        </div>
+                        <span class="d-block comment-created-time">{{ $comment->created_at->diffForHumans() }}</span>
+                        <p class="fs-8 pt-2">
+                          {{ $comment->content }}
+                        </p>
+                        <div class="commentLR">
+                          <button type="button" class="btn btn-link fs-8">Like</button>
+                          <button type="button" class="btn btn-link fs-8">Reply</button>
+                        </div>
                       </div>
-                      <span class="d-block comment-created-time">30 min ago</span>
-                      <p class="fs-8 pt-2">
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Lorem ipsum dolor sit
-                        amet,
-                        <a href="#">#consecteturadipiscing </a>.
-                      </p>
-                      <div class="commentLR">
-                        <button
-                          type="button"
-                          class="btn btn-link fs-8">
-                          Like
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-link fs-8">
-                          Reply
-                        </button>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="media">
-                    <a href="#" class="pull-left">
-                      <img
-                        src="https://bootdey.com/img/Content/user_2.jpg"
-                        alt=""
-                        class="img-circle" />
-                    </a>
-                    <div class="media-body">
-                      <div
-                        class="d-flex justify-content-between align-items-center w-100">
-                        <strong class="text-gray-dark"><a href="#" class="fs-8">Lia Earnest</a></strong>
-                        <a href="#"><i
-                            class="bx bx-dots-horizontal-rounded"></i></a>
-                      </div>
-                      <span class="d-block comment-created-time">2 hours ago</span>
-                      <p class="fs-8 pt-2">
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Lorem ipsum dolor sit
-                        amet,
-                        <a href="#">#consecteturadipiscing </a>.
-                      </p>
-                      <div class="commentLR">
-                        <button
-                          type="button"
-                          class="btn btn-link fs-8">
-                          Like
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-link fs-8">
-                          Reply
-                        </button>
-                      </div>
-                    </div>
-                  </li>
+                    </li>
+              
+                 
+                    @endforeach
+                  </ul>
+
 
                   <li class="media">
                     <div class="media-body">
