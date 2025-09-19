@@ -7,7 +7,7 @@
     <div class="media-body pb-3 mb-0 small lh-125">
       <div
         class="d-flex justify-content-between align-items-center w-100">
-        <a href="#" class="text-gray-dark post-user-name">dekfnkjen</a>
+        <a href="#" class="text-gray-dark post-user-name">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</a>
         <div class="dropdown">
           <a
             href="#"
@@ -89,12 +89,12 @@
           </div>
         </div>
       </div>
-      <span class="d-block">3 hours ago <i class="bx bx-globe ml-3"></i></span>
+      <span class="d-block">{{$post->created_at->diffForHumans()}} <i class="bx bx-globe ml-3"></i></span>
     </div>
   </div>
   <div class="mt-3">
     <p>
-    {{ $post->content}}
+      {{ $post->content}}
     </p>
   </div>
   <div class="d-block mt-3">
