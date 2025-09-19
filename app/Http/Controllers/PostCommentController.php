@@ -22,11 +22,7 @@ class PostCommentController extends Controller
     // }
     public function store(PostCommentRequest $request, Post $post)
     {
-        PostComment::create([
-            'post_id' => $post->id,
-            'user_id' => Auth::id(),
-            'content' => $request->content,
-        ])->$post->comments()->create([
+        $post->comments()->create([
             'user_id' => Auth::id(),
             'content' => $request->content,
         ]);
