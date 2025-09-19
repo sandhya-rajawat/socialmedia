@@ -7,7 +7,9 @@
     <div class="media-body pb-3 mb-0 small lh-125">
       <div
         class="d-flex justify-content-between align-items-center w-100">
-        <a href="#" class="text-gray-dark post-user-name">{{Auth::user()->first_name}} {{Auth::user()->last_name}}</a>
+        <a href="#" class="text-gray-dark post-user-name">@if(!empty($post->user->first_name) && !empty($post->user->last_name))
+          {{ $post->user->first_name }} {{ $post->user->last_name }}
+          @endif</a>
         <div class="dropdown">
           <a
             href="#"
