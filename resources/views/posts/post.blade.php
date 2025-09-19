@@ -7,7 +7,7 @@
     <div class="media-body pb-3 mb-0 small lh-125">
       <div
         class="d-flex justify-content-between align-items-center w-100">
-        <a href="#" class="text-gray-dark post-user-name">John Michael</a>
+        <a href="#" class="text-gray-dark post-user-name">dekfnkjen</a>
         <div class="dropdown">
           <a
             href="#"
@@ -94,7 +94,7 @@
   </div>
   <div class="mt-3">
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis voluptatem veritatis harum, tenetur, quibusdam voluptatum, incidunt saepe minus maiores ea atque sequi illo veniam sint quaerat corporis totam et. Culpa?
+    {{ $post->content}}
     </p>
   </div>
   <div class="d-block mt-3">
@@ -107,7 +107,7 @@
     <!-- Reactions -->
     <div class="argon-reaction">
       <span class="like-btn">
-        <a href="#" class="post-card-buttons" id="reactions"><i class="bx bxs-like mr-2"></i> 67</a>
+        <a href="#" class="post-card-buttons" id="reactions"><i class="bx bxs-like mr-2"></i> Likes: {{ $post->likes_count }}</a>
 
       </span>
     </div>

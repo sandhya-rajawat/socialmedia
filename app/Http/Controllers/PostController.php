@@ -22,7 +22,7 @@ class PostController extends Controller
             'user_id' => Auth::id(),
             'content' => $request->content
         ]);
-        $post->load('user', 'comments.user')->loadCount('Likes');
+        $post->load('user', 'comments.user')->loadCount('likes');
         $post->is_liked = false;
         $postHtml = view('posts.post', compact('post'))->render();
         return response()->json([
