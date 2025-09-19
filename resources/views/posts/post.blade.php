@@ -120,7 +120,7 @@
         5
       </button>
       <div class="dropdown dropup share-dropup">
-        <a"
+        <a
           href="#"
           class="post-card-buttons"
           data-toggle="dropdown"
@@ -220,8 +220,8 @@
                         </div>
                       </div>
                     </li>
-              
-                 
+
+
                     @endforeach
                   </ul>
 

@@ -26,8 +26,9 @@ class PostCommentController extends Controller
             'post_id' => $post->id,
             'user_id' => Auth::id(),
             'content' => $request->content,
+        ])->$post->comments()->create([
+            'user_id' => Auth::id(),
+            'content' => $request->content,
         ]);
-
-        return redirect()->back();
     }
 }
