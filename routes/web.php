@@ -23,7 +23,7 @@ Route::middleware(['auth'])->group(function () {
   Route::resource('posts.likes', PostLikeController::class)->only(['store']);
 
 
-  Route::resource('posts.comments', PostCommentController::class)->only(['store','index']);
+  Route::resource('posts.comments', PostCommentController::class)->only(['store']);
 
 
 

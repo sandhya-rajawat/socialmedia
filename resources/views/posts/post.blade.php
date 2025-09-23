@@ -127,7 +127,7 @@
           aria-haspopup="true"
           aria-expanded="false">
           <i class="bx bx-share-alt mr-2"></i> Share
-          </a>
+        </a>
       </div>
     </div>
     <!-- pp -->
@@ -147,7 +147,8 @@
                         class="img-circle" />
                     </a>
                     <div class="media-body">
-                      <form action="" method="" role="form">
+                      <form action="" method="" role="form" class="form-submit" data-post-id="{{ $post->id }}">
+                        @csrf
                         <div class="row">
                           <div class="col-md-12">
                             <div class="input-group">
@@ -155,6 +156,14 @@
                                 type="text"
                                 class="form-control comment-input"
                                 placeholder="Write a comment..." />
+                              <div class="input-group-append">
+                                <button type="submit" class="comment-submit  p-0" style="border:none; background:none;  display: none;">
+                                  <img src="{{ asset('assets/images/profile_post/up.png') }}" style="width:20px; height:20px;" alt="upload">
+                                </button>
+                                          
+                              </div>
+
+
                               <div class="input-group-btn">
                                 <button
                                   type="button"
@@ -162,7 +171,9 @@
                                   data-toggle="tooltip"
                                   data-placement="top"
                                   title="Tooltip on top">
-                                  <i class="bx bxs-smiley-happy"></i></button>
+                                  <i
+                                    class="bx bxs-smiley-happy"></i>
+                                </button>
                                 <button
                                   type="button"
                                   class="btn comment-form-btn comment-form-btn"
@@ -194,36 +205,20 @@
                       </form>
                     </div>
                   </li>
-                  <ul class="list-unstyled">
-                    @foreach ($post->comments as $comment)
-                    <li class="media">
-                      <a href="#" class="pull-left">
-                        <img
-                          src="{{ $comment->user->profile_photo ?? asset('assets/images/users/default.jpg') }}"
-                          alt="{{ $comment->user->name }}"
-                          class="img-circle" />
-                      </a>
-                      <div class="media-body">
-                        <div class="d-flex justify-content-between align-items-center w-100">
-                          <strong class="text-gray-dark">
-                            <a href="#" class="fs-8">{{ $comment->user->first_name }}</a>
-                          </strong>
-                          <a href="#"><i class="bx bx-dots-horizontal-rounded"></i></a>
-                        </div>
-                        <span class="d-block comment-created-time">{{ $comment->created_at->diffForHumans() }}</span>
-                        <p class="fs-8 pt-2">
-                          {{ $comment->content }}
-                        </p>
-                        <div class="commentLR">
-                          <button type="button" class="btn btn-link fs-8">Like</button>
-                          <button type="button" class="btn btn-link fs-8">Reply</button>
-                        </div>
-                      </div>
-                    </li>
+                  @foreach($post->comments as $comment)
+                  @include('comments.comment', ['comment' => $comment])
+                  @endforeach
+                  <li class="media">
+                    <a href="#" class="pull-left">
+                      <img
+                        src="assets/images/users/user-2.jpg"
+                        alt=""
+                        class="img-circle" />
+                    </a>
 
 
-                    @endforeach
-                  </ul>
+                  </li>
+
 
 
                   <li class="media">
@@ -245,3 +240,50 @@
       </div>
     </div>
   </div>
+  <script>
+    $(document).ready(function() {
+      $(document).on('input', ".comment-input", function() {
+        let $btn = $(this).closest(".input-group").find('.comment-submit');
+        if ($(this).val().trim() !== '') {
+          $btn.show();
+        } else {
+          $btn.hide();
+        }
+      });
+
+      $('.form-submit').submit(function(e) {
+        e.preventDefault();
+        const $this = $(this);
+        const postId = $this.data('post-id');
+        const commentData = $this.find('.comment-input').val();
+        if (commentData.trim() === '') return;
+        let commentUrl = "{{ route('posts.comments.store', ':post') }}";
+        commentUrl = commentUrl.replace(':post', postId);
+        $.ajax({
+          type: "POST",
+          url: commentUrl,
+          data: {
+            content: commentData,
+            _token: "{{ csrf_token() }}"
+          },
+          beforeSend: function() {
+            $this.find(".comment-submit").prop("disabled", true);
+          },
+          success: function(response) {
+            if (response.success) {
+              $this.closest(".comments-list").prepend(response.html);
+              $this.find('.comment-input').val('');
+            }
+            $this.find(".comment-submit").prop("disabled", false);
+          },
+
+
+          error: function(xhr) {
+            console.error("Error creating post:", xhr.responseText);
+            $this.find(".comment-submit").prop("disabled", false);
+          }
+
+        });
+      });
+    });
+  </script>
