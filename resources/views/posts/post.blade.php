@@ -113,10 +113,12 @@
 
         </span>
       </div>
-      <a
-        href="javascript:void(0)"
-        class="post-card-buttons"
-        id="show-comments"><i class="bx bx-message-rounded mr-2"></i> 5</a>
+      <button class="post-card-buttons" id="show-comments" type="button"
+        style="border: none; background:none;">
+        <img src="assets/images/profile_post/chat.png" alt="chat" width="25" class="mr-2"
+          style="background: none; cursor: pointer;" />
+        5
+      </button>
       <div class="dropdown dropup share-dropup">
         <a
           href="#"
@@ -145,7 +147,8 @@
                         class="img-circle" />
                     </a>
                     <div class="media-body">
-                      <form action="" method="" role="form">
+                      <form action="" method="" role="form" class="form-submit" data-post-id="{{ $post->id }}">
+                        @csrf
                         <div class="row">
                           <div class="col-md-12">
                             <div class="input-group">
@@ -153,6 +156,13 @@
                                 type="text"
                                 class="form-control comment-input"
                                 placeholder="Write a comment..." />
+                              <div class="input-group-append">
+                                <button type="submit" class="comment-submit  p-0" style="border:none; background:none;  display: none;">
+                                  <img src="{{ asset('assets/images/profile_post/up.png') }}" style="width:20px; height:20px;" alt="upload">
+                                </button>
+                                          
+                              </div>
+
 
                               <div class="input-group-btn">
                                 <button
@@ -195,6 +205,9 @@
                       </form>
                     </div>
                   </li>
+                  @foreach($post->comments as $comment)
+                  @include('comments.comment', ['comment' => $comment])
+                  @endforeach
                   <li class="media">
                     <a href="#" class="pull-left">
                       <img
@@ -202,69 +215,11 @@
                         alt=""
                         class="img-circle" />
                     </a>
-                    <div class="media-body">
-                      <div
-                        class="d-flex justify-content-between align-items-center w-100">
-                        <strong class="text-gray-dark"><a href="#" class="fs-8">Karen Minas</a></strong>
-                        <a href="#"><i
-                            class="bx bx-dots-horizontal-rounded"></i></a>
-                      </div>
-                      <span class="d-block comment-created-time">30 min ago</span>
-                      <p class="fs-8 pt-2">
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Lorem ipsum dolor sit
-                        amet,
-                        <a href="#">#consecteturadipiscing </a>.
-                      </p>
-                      <div class="commentLR">
-                        <button
-                          type="button"
-                          class="btn btn-link fs-8">
-                          Like
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-link fs-8">
-                          Reply
-                        </button>
-                      </div>
-                    </div>
+
+
                   </li>
-                  <li class="media">
-                    <a href="#" class="pull-left">
-                      <img
-                        src="https://bootdey.com/img/Content/user_2.jpg"
-                        alt=""
-                        class="img-circle" />
-                    </a>
-                    <div class="media-body">
-                      <div
-                        class="d-flex justify-content-between align-items-center w-100">
-                        <strong class="text-gray-dark"><a href="#" class="fs-8">Lia Earnest</a></strong>
-                        <a href="#"><i
-                            class="bx bx-dots-horizontal-rounded"></i></a>
-                      </div>
-                      <span class="d-block comment-created-time">2 hours ago</span>
-                      <p class="fs-8 pt-2">
-                        Lorem ipsum dolor sit amet, consectetur
-                        adipiscing elit. Lorem ipsum dolor sit
-                        amet,
-                        <a href="#">#consecteturadipiscing </a>.
-                      </p>
-                      <div class="commentLR">
-                        <button
-                          type="button"
-                          class="btn btn-link fs-8">
-                          Like
-                        </button>
-                        <button
-                          type="button"
-                          class="btn btn-link fs-8">
-                          Reply
-                        </button>
-                      </div>
-                    </div>
-                  </li>
+
+
 
                   <li class="media">
                     <div class="media-body">
@@ -285,3 +240,50 @@
       </div>
     </div>
   </div>
+  <script>
+    $(document).ready(function() {
+      $(document).on('input', ".comment-input", function() {
+        let $btn = $(this).closest(".input-group").find('.comment-submit');
+        if ($(this).val().trim() !== '') {
+          $btn.show();
+        } else {
+          $btn.hide();
+        }
+      });
+
+      $('.form-submit').submit(function(e) {
+        e.preventDefault();
+        const $this = $(this);
+        const postId = $this.data('post-id');
+        const commentData = $this.find('.comment-input').val();
+        if (commentData.trim() === '') return;
+        let commentUrl = "{{ route('posts.comments.store', ':post') }}";
+        commentUrl = commentUrl.replace(':post', postId);
+        $.ajax({
+          type: "POST",
+          url: commentUrl,
+          data: {
+            content: commentData,
+            _token: "{{ csrf_token() }}"
+          },
+          beforeSend: function() {
+            $this.find(".comment-submit").prop("disabled", true);
+          },
+          success: function(response) {
+            if (response.success) {
+              $this.closest(".comments-list").prepend(response.html);
+              $this.find('.comment-input').val('');
+            }
+            $this.find(".comment-submit").prop("disabled", false);
+          },
+
+
+          error: function(xhr) {
+            console.error("Error creating post:", xhr.responseText);
+            $this.find(".comment-submit").prop("disabled", false);
+          }
+
+        });
+      });
+    });
+  </script>

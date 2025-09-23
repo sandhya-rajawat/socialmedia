@@ -12,25 +12,19 @@ use Illuminate\Support\Facades\Auth;
 class PostCommentController extends Controller
 
 {
-    public function index(Post $post)
-    {
-        $comments = $post->comments()->with('user')->latest()->get();
-        return response()->json([
-            'success' => true,
-            'comments' => $comments,
-        ]);
-    }
+
     public function store(PostCommentRequest $request, Post $post)
     {
-        $content = PostComment::create([
-            'post_id' => $post->id,
+        $comment = $post->comments()->create([
             'user_id' => Auth::id(),
             'content' => $request->content,
         ]);
-        $content->load('user');
+        $comment->load('user');
+        $commenthtml = view('comments.comment', compact('comment'))->render();
         return response()->json([
             'success' => true,
-            'content' => $content,
+            'html' => $commenthtml
+
         ]);
     }
 }
