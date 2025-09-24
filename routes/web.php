@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
 use App\Http\Controllers\PostCommentController;
+use App\Http\Controllers\CommentLikeController;
 
 
 
@@ -24,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
 
 
   Route::resource('posts.comments', PostCommentController::class)->only(['store']);
+  Route::resource('comments.like', CommentLikeController::class)->only(['store']);
 
 
 

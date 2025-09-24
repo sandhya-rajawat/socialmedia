@@ -99,191 +99,137 @@
       {{ $post->content}}
     </p>
   </div>
-  <div class="d-block mt-3">
-    <!-- <img
+  <!-- <div class="d-block mt-3"> -->
+  <!-- <img
       src="https://scontent.fevn1-2.fna.fbcdn.net/v/t1.0-9/56161887_588993861570433_2896723195090436096_n.jpg?_nc_cat=103&_nc_eui2=AeFI0UuTq3uUF_TLEbnZwM-qSRtgOu0HE2JPwW6b4hIki73-2OWYhc7L1MPsYl9cYy-w122CCak-Fxj0TE1a-kjsd-KXzh5QsuvxbW_mg9qqtg&_nc_ht=scontent.fevn1-2.fna&oh=ea44bffa38f368f98f0553c5cef8e455&oe=5D050B05"
       class="post-content"
       alt="post image" />
   </div> -->
-    <div class="mb-3">
-      <!-- Reactions -->
-      <div class="argon-reaction">
-        <span class="like-btn">
-          <a href="#" class="post-card-buttons" id="reactions"><i class="bx bxs-like mr-2"></i> Likes:{{ $post->likes_count }}</a>
+  <div class="mb-3">
+    <!-- Reactions -->
+    <div class="argon-reaction">
+      <span class="like-btn">
+        <a href="#" class="post-card-buttons" id="reactions"><i class="bx bxs-like mr-2"></i> Likes:{{ $post->likes_count }}</a>
 
-        </span>
-      </div>
-      <button class="post-card-buttons" id="show-comments" type="button"
-        style="border: none; background:none;">
-        <img src="assets/images/profile_post/chat.png" alt="chat" width="25" class="mr-2"
-          style="background: none; cursor: pointer;" />
-        5
-      </button>
-      <div class="dropdown dropup share-dropup">
-        <a
-          href="#"
-          class="post-card-buttons"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false">
-          <i class="bx bx-share-alt mr-2"></i> Share
-        </a>
-      </div>
+      </span>
     </div>
-    <!-- pp -->
-    <div
-      class="border-top pt-3 hide-comments">
-      <div class="row bootstrap snippets">
-        <div class="col-md-12">
-          <div class="comment-wrapper">
-            <div class="panel panel-info">
-              <div class="panel-body">
-                <ul class="media-list comments-list">
-                  <li class="media comment-form">
-                    <a href="#" class="pull-left">
-                      <img
-                        src="assets/images/users/user-4.jpg"
-                        alt=""
-                        class="img-circle" />
-                    </a>
-                    <div class="media-body">
-                      <form action="" method="" role="form" class="form-submit" data-post-id="{{ $post->id }}">
-                        @csrf
-                        <div class="row">
-                          <div class="col-md-12">
-                            <div class="input-group">
-                              <input
-                                type="text"
-                                class="form-control comment-input"
-                                placeholder="Write a comment..." />
-                              <div class="input-group-append">
-                                <button type="submit" class="comment-submit  p-0" style="border:none; background:none;  display: none;">
-                                  <img src="{{ asset('assets/images/profile_post/up.png') }}" style="width:20px; height:20px;" alt="upload">
-                                </button>
-                                          
-                              </div>
-
-
-                              <div class="input-group-btn">
-                                <button
-                                  type="button"
-                                  class="btn comment-form-btn"
-                                  data-toggle="tooltip"
-                                  data-placement="top"
-                                  title="Tooltip on top">
-                                  <i
-                                    class="bx bxs-smiley-happy"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  class="btn comment-form-btn comment-form-btn"
-                                  data-toggle="tooltip"
-                                  data-placement="top"
-                                  title="Tooltip on top">
-                                  <i class="bx bx-camera"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  class="btn comment-form-btn comment-form-btn"
-                                  data-toggle="tooltip"
-                                  data-placement="top"
-                                  title="Tooltip on top">
-                                  <i class="bx bx-microphone"></i>
-                                </button>
-                                <button
-                                  type="button"
-                                  class="btn comment-form-btn"
-                                  data-toggle="tooltip"
-                                  data-placement="top"
-                                  title="Tooltip on top">
-                                  <i class="bx bx-file-blank"></i>
-                                </button>
-                              </div>
+    <button class="post-card-buttons" id="show-comments" type="button"
+      style="border: none; background:none;">
+      <img src="assets/images/profile_post/chat.png" alt="chat" width="25" class="mr-2"
+        style="background: none; cursor: pointer;" />
+      5
+    </button>
+    <div class="dropdown dropup share-dropup">
+      <a
+        href="#"
+        class="post-card-buttons"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false">
+        <i class="bx bx-share-alt mr-2"></i> Share
+      </a>
+    </div>
+  </div>
+  <!-- comments -->
+  <div
+    class="border-top pt-3 hide-comments">
+    <div class="row bootstrap snippets">
+      <div class="col-md-12">
+        <div class="comment-wrapper">
+          <div class="panel panel-info">
+            <div class="panel-body">
+              <ul class="media-list comments-list">
+                <li class="media comment-form">
+                  <a href="#" class="pull-left">
+                    <img
+                      src="assets/images/users/user-4.jpg"
+                      alt=""
+                      class="img-circle" />
+                  </a>
+                  <div class="media-body">
+                    <form action="" method="" role="form" class="form-submit" data-post-id="{{ $post->id }}">
+                      @csrf
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="input-group">
+                            <input
+                              type="text"
+                              class="form-control comment-input"
+                              placeholder="Write a comment..." />
+                            <div class="input-group-append">
+                              <button type="submit" class="comment-submit  p-0" style="border:none; background:none;  display: none;">
+                                <img src="{{ asset('assets/images/profile_post/up.png') }}" style="width:20px; height:20px;" alt="upload">
+                              </button>
+                                        
+                            </div>
+                            <div class="input-group-btn">
+                              <button
+                                type="button"
+                                class="btn comment-form-btn"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Tooltip on top">
+                                <i
+                                  class="bx bxs-smiley-happy"></i>
+                              </button>
+                              <button
+                                type="button"
+                                class="btn comment-form-btn comment-form-btn"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Tooltip on top">
+                                <i class="bx bx-camera"></i>
+                              </button>
+                              <button
+                                type="button"
+                                class="btn comment-form-btn comment-form-btn"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Tooltip on top">
+                                <i class="bx bx-microphone"></i>
+                              </button>
+                              <button
+                                type="button"
+                                class="btn comment-form-btn"
+                                data-toggle="tooltip"
+                                data-placement="top"
+                                title="Tooltip on top">
+                                <i class="bx bx-file-blank"></i>
+                              </button>
                             </div>
                           </div>
                         </div>
-                      </form>
-                    </div>
-                  </li>
-                  @foreach($post->comments as $comment)
-                  @include('comments.comment', ['comment' => $comment])
-                  @endforeach
-                  <li class="media">
-                    <a href="#" class="pull-left">
-                      <img
-                        src="assets/images/users/user-2.jpg"
-                        alt=""
-                        class="img-circle" />
-                    </a>
-
-
-                  </li>
-
-
-
-                  <li class="media">
-                    <div class="media-body">
-                      <div class="comment-see-more text-center">
-                        <button
-                          type="button"
-                          class="btn btn-link fs-8">
-                          See More
-                        </button>
                       </div>
+                    </form>
+                  </div>
+                </li>
+                @foreach($post->comments as $comment)
+                @include('comments.comment', ['comment' => $comment])
+                @endforeach
+                <li class="media">
+                  <a href="#" class="pull-left">
+                    <img
+                      src="assets/images/users/user-2.jpg"
+                      alt=""
+                      class="img-circle" />
+                  </a>
+                </li>
+                <li class="media">
+                  <div class="media-body">
+                    <div class="comment-see-more text-center">
+                      <button
+                        type="button"
+                        class="btn btn-link fs-8">
+                        See More
+                      </button>
                     </div>
-                  </li>
-                </ul>
-              </div>
+                  </div>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <script>
-    $(document).ready(function() {
-      $(document).on('input', ".comment-input", function() {
-        let $btn = $(this).closest(".input-group").find('.comment-submit');
-        if ($(this).val().trim() !== '') {
-          $btn.show();
-        } else {
-          $btn.hide();
-        }
-      });
-
-      $('.form-submit').submit(function(e) {
-        e.preventDefault();
-        const $this = $(this);
-        const postId = $this.data('post-id');
-        const commentData = $this.find('.comment-input').val();
-        if (commentData.trim() === '') return;
-        let commentUrl = "{{ route('posts.comments.store', ':post') }}";
-        commentUrl = commentUrl.replace(':post', postId);
-        $.ajax({
-          type: "POST",
-          url: commentUrl,
-          data: {
-            content: commentData,
-            _token: "{{ csrf_token() }}"
-          },
-          beforeSend: function() {
-            $this.find(".comment-submit").prop("disabled", true);
-          },
-          success: function(response) {
-            if (response.success) {
-              $this.closest(".comments-list").prepend(response.html);
-              $this.find('.comment-input').val('');
-            }
-            $this.find(".comment-submit").prop("disabled", false);
-          },
-
-
-          error: function(xhr) {
-            console.error("Error creating post:", xhr.responseText);
-            $this.find(".comment-submit").prop("disabled", false);
-          }
-
-        });
-      });
-    });
-  </script>
+</div>
