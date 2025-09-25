@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,18 +12,14 @@
     <link href="assets/css/forms.css" rel="stylesheet">
     <link href="assets/css/media.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  
 </head>
-
 <body class="bg-gray-100">
     @include('layouts.partials.navbar')
     <div class="row mt-3">
-
         <!-- Sidebar -->
         <div class="col-md-3 sticky-top shadow-sm" id="sidebar-wrapper">
             @include('layouts.partials.sidebar')
         </div>
-
         <!-- Content -->
         <div class="col-md-9">
             @yield('content')
@@ -34,7 +29,5 @@
     <div class="mt-4">
         @include('layouts.partials.weather-widget')
     </div>
-
 </body>
-
 </html>

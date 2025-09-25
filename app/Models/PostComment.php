@@ -1,17 +1,12 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 use App\Models\CommentLike;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Facades\Auth;
-
-
 class PostComment extends Model
 {
     protected $fillable = ['user_id', 'post_id', 'content'];
-
     protected $appends = ['is_liked'];
     public function post()
     {
@@ -26,7 +21,6 @@ class PostComment extends Model
         return $this->hasMany(CommentLike::class, 'comment_id');
     }
     public function isliked(): Attribute
-
     {
         return Attribute::make(
             get: fn() => $this->likes()->where('user_id', Auth::id())->exists()

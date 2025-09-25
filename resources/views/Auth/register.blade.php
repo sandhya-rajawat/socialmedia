@@ -1,14 +1,12 @@
 @extends('layouts.auth')
 @section('title', 'Login')
 @section('content')
-
 <div class="row ht-100v flex-row-reverse no-gutters">
     <div class="col-md-6 d-flex justify-content-center align-items-center">
         <div class="signup-form">
             <div class="auth-logo text-center mb-5">
                 <div class="row">
                     <div class="col-md-2">
-
                         <img src="assets/images/logo.png" class="logo-img " style="width: 85px; height: 85px;" alt="Logo">
                     </div>
                     <div class="col-md-10">
@@ -28,7 +26,6 @@
                     </ul>
                 </div>
                 @endif
-
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -62,7 +59,6 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-
                             <select name="month" class="form-control">
                                 <option value="">- Select Month -</option>
                                 <option value="1">January</option>
@@ -78,8 +74,6 @@
                                 <option value="11">November</option>
                                 <option value="12">December</option>
                             </select>
-
-
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -90,7 +84,6 @@
                                     <option value="{{ $y }}">{{ $y }}</option>
                                     @endfor
                             </select>
-
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -107,7 +100,6 @@
                         <p class="agree-privacy">By clicking the Sign Up button below you agreed to our privacy policy and terms of use of our website.</p>
                     </div>
                     <div class="col-md-6">
-
                         <span class="go-login">Already a member? <a href="{{route('login')}}">Sign In</a></span>
                     </div>
                     <div class="col-md-6 text-right">
@@ -135,8 +127,4 @@
         </div>
     </div>
 </div>
-
-
-
-
 @endsection('content')

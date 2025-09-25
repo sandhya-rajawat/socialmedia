@@ -1,18 +1,12 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Http\Requests\PostCommentRequest;
-
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\PostComment;
 use Illuminate\Support\Facades\Auth;
-
 class PostCommentController extends Controller
-
 {
-
     public function store(PostCommentRequest $request, Post $post)
     {
         $comment = $post->comments()->create([
@@ -24,7 +18,6 @@ class PostCommentController extends Controller
         return response()->json([
             'success' => true,
             'html' => $commenthtml
-
         ]);
     }
 }

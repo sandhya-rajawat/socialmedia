@@ -11,9 +11,6 @@
     <link href="https://cdn.jsdelivr.net/npm/boxicons@1.9.2/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
-
     @yield('content')
-
-
 </body>
 </html>
