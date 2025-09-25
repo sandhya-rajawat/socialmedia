@@ -22,7 +22,7 @@ class PostController extends Controller
         $post->is_liked = false;
         $postHtml = view('posts.post', compact('post'))->render();
         return response()->json([
-            'success' =>true,
+            'success' => true,
             'html' => $postHtml
         ]);
     }
