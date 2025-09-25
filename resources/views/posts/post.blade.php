@@ -110,7 +110,6 @@
     <div class="argon-reaction">
       <span class="like-btn">
         <a href="#" class="post-card-buttons" id="reactions"><i class="bx bxs-like mr-2"></i> Likes:{{ $post->likes_count }}</a>
-
       </span>
     </div>
     <button class="post-card-buttons" id="show-comments" type="button"
@@ -160,7 +159,6 @@
                               <button type="submit" class="comment-submit  p-0" style="border:none; background:none;  display: none;">
                                 <img src="{{ asset('assets/images/profile_post/up.png') }}" style="width:20px; height:20px;" alt="upload">
                               </button>
-                                        
                             </div>
                             <div class="input-group-btn">
                               <button

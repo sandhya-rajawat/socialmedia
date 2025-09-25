@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Home')
 @section('content')
-
 <div class="col-md-8 second-section" id="page-content-wrapper">
   <!-- Quick Links -->
   <div class="mb-3">
@@ -10,7 +9,6 @@
     </div>
   </div>
   <!-- Post Form -->
-
   <div class="col-md-12 second-section" id="page-content-wrapper">
     <div class="mb-3">
       <div class="btn-group d-flex">
@@ -45,7 +43,6 @@
         <div class="media-body">
           <form id="postFormWrapper">
             <div class="form-group post-input">
-
               <textarea
                 class="form-control"
                 id="postForm"
@@ -83,16 +80,13 @@
                 <button type="submit" class="btn btn-primary btn-sm" id="publishbtn">
                   Publish
                 </button>
-
               </div>
             </div>
           </form>
         </div>
       </li>
     </ul>
-
   </div>
-
   <!-- Posts -->
   <div id="posts-section" class="posts-section mb-5" id="post">
     <script>
@@ -111,7 +105,6 @@
           });
         }
         loadposts();
-
         // Post-inset
         $("#postFormWrapper").submit(function(e) {
           e.preventDefault();
@@ -139,8 +132,6 @@
         });
       });
     </script>
-
-
   </div>
 </div>
 @endsection

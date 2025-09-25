@@ -12,12 +12,9 @@
         <p class="mb-1">{{ $comment->content }}</p>
         <div class="comment-actions">
             <button type="submit" class="btn btn-link btn-sm like-btn" data-comment-id="{{ $comment->id }}">
-
                 <img src="{{ $comment->is_liked ? asset('assets/images/profile_post/like.png') : asset('assets/images/profile_post/unlike.png') }}"
                     style="width:29px" class="icon">
-
             </button>
-
             <span class="like-count">{{ $comment->likes()->count()}}</span>
             <button type="button" class="btn btn-link btn-sm">Reply</button>
         </div>

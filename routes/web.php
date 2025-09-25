@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -8,27 +7,16 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PostLikeController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\CommentLikeController;
-
-
-
 Route::get('register', [RegisterController::class, 'create'])->name('register');
 Route::post('register', [RegisterController::class, 'store']);
-
 Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store']);
-
-
 Route::middleware(['auth'])->group(function () {
-  Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-  Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
-  Route::resource('posts.likes', PostLikeController::class)->only(['store']);
-
-
-  Route::resource('posts.comments', PostCommentController::class)->only(['store']);
-  Route::resource('comments.like', CommentLikeController::class)->only(['store']);
-
-
-
-  // Optionally protect 'index' as well
-  Route::get('index', [IndexController::class, 'create'])->name('home');
+    Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+    Route::resource('posts.likes', PostLikeController::class)->only(['store']);
+    Route::resource('posts.comments', PostCommentController::class)->only(['store']);
+    Route::resource('comments.like', CommentLikeController::class)->only(['store']);
+    // Optionally protect 'index' as well
+    Route::get('index', [IndexController::class, 'create'])->name('home');
 });

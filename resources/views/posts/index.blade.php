@@ -1,7 +1,6 @@
 @foreach($posts as $post)
 @include('posts.post',['post' => $post])
 @endforeach
-
 <script>
   $(document).ready(function() {
     $(document).on('input', ".comment-input", function() {
@@ -12,7 +11,6 @@
         $btn.hide();
       }
     });
-
     $('.form-submit').submit(function(e) {
       e.preventDefault();
       const $this = $(this);
@@ -39,20 +37,14 @@
           }
           $this.find(".comment-submit").prop("disabled", false);
         },
-
-
         error: function(xhr) {
           console.error("Error creating post:", xhr.responseText);
           $this.find(".comment-submit").prop("disabled", false);
         }
-
       });
     });
-
-
     $(document).on('click', '.likebtn', function(e) {
       e.preventDefault();
-
       const $this = $(this);
       const postId = $this.data('post-id');
       const $likeCount = $this.closest('.argon-reaction').find('.like-count');
@@ -68,10 +60,8 @@
         success: function(response) {
           // Update the like count
           if (response.success) {
-
             const newCount = response.likes_count;
             const status = response.status;
-
             $likeCount.text(newCount);
             if (response.is_liked === true) {
               $likeIcon.attr('src', '/assets/images/profile_post/like.png');
@@ -85,9 +75,7 @@
         }
       });
     });
-
     // comment_like system
-
     $(document).on('click', '.like-btn', function(e) {
       e.preventDefault();
       let $this = $(this);
@@ -108,10 +96,7 @@
         },
         success: function(response) {
           let newCount = response.likeCount;
-       
           let isLiked = response.is_liked;
-    
-
           $like_count.text(newCount);
           console.log($like_count);
           if (isLiked) {
@@ -126,7 +111,6 @@
           $this.prop("disabled", false);
         }
       })
-
     });
   });
 </script>

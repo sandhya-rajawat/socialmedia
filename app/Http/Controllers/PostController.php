@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Auth;
-
 class PostController extends Controller
 {
     public function index()
@@ -15,7 +12,6 @@ class PostController extends Controller
         $posts = Post::with('user', 'likes', 'comments.user')->withCount('likes')->latest()->get();
         return view('posts.index', compact('posts'));
     }
-
     public function store(PostRequest $request)
     {
         $post = Post::create([
@@ -26,7 +22,7 @@ class PostController extends Controller
         $post->is_liked = false;
         $postHtml = view('posts.post', compact('post'))->render();
         return response()->json([
-            'success' => true,
+            'success' =>true,
             'html' => $postHtml
         ]);
     }
