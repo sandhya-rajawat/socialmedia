@@ -12,24 +12,24 @@ class CommentLikeController extends Controller
     public function store(PostComment $comment)
     {
         $user = Auth::user();
-        $alreadylike = $comment->commentlike()->where('user_id', $user->id)->first();
 
-        if ($alreadylike) {
-            // Unlike
-            $alreadylike->delete();
+        // Check if user already liked
+        $existingLike = $comment->likes()->where('user_id', $user->id)->first();
+
+        if ($existingLike) {
+            // Remove like
+            $existingLike->delete();
             $isLiked = false;
         } else {
-            // Like
-            $comment->commentlike()->create([
-                'user_id' => $user->id,
-            ]);
+            // Add like, prevent duplicates
+            $comment->likes()->firstOrCreate(['user_id' => $user->id]);
             $isLiked = true;
         }
-
+        $likeCount = $comment->likes()->count();
         return response()->json([
             'success' => true,
-            'is_liked'  => $isLiked,
-            'likeCount' => $comment->commentlike()->count()
+            'is_liked' => $isLiked,
+            'likeCount' => $likeCount
         ]);
     }
 }

@@ -21,7 +21,7 @@ class PostComment extends Model
     {
         return $this->belongsTo(User::class);
     }
-    public function commentlike()
+    public function likes()
     {
         return $this->hasMany(CommentLike::class, 'comment_id');
     }
@@ -29,7 +29,7 @@ class PostComment extends Model
 
     {
         return Attribute::make(
-            get: fn() => $this->commentlike()->where('user_id', Auth::id())->exists()
+            get: fn() => $this->likes()->where('user_id', Auth::id())->exists()
         );
     }
 }

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('post_comments', function (Blueprint $table) {
-            $table->Integer('like_count')->default(0)->after('content');
+            $table->unsignedInteger('like_count')->default(0)->after('content');
         });
     }
 
