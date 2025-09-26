@@ -159,12 +159,12 @@
                                 @foreach ($post->comments as $comment)
                                     @include('comments.comment', ['comment' => $comment])
                                 @endforeach
-                                <li class="media">
+                                {{-- <li class="media">
                                     <a href="#" class="pull-left">
                                         <img src="assets/images/users/user-2.jpg" alt=""
                                             class="img-circle" />
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li class="media">
                                     <div class="media-body">
                                         <div class="comment-see-more text-center">
