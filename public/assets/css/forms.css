@@ -320,3 +320,82 @@
    top: 1rem;
    left: 1.25rem;
 }
+.reply-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.reply-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+}
+.comment-actions {
+  margin-top: 5px;
+}
+.comment-actions .btn img {
+  vertical-align: middle;
+}
+.btn-send {
+  background: #f5f5f5;     
+  border: none;
+  padding: 8px;              
+  border-radius: 50%;        
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+.btn-send img {
+  width: 18px;
+  height: 18px;
+}
+.btn-send:hover {
+  background: #e0e0e0;      
+}
+.btn-reply {
+  background: #f5f5f5;       
+  border: 1px solid #ddd;
+  padding: 6px 14px;         
+  border-radius: 20px;       
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-reply:hover {
+  background: #e0e0e0;       
+  border-color: #ccc;
+}
+.like-count{
+    margin-right: 7%;
+}
+.post-reactions {
+    display: flex;
+    align-items: center; 
+    gap: 20px;           
+    padding: 8px 0;      
+}
+.likebtn, .show-comments, .post-card-buttons {
+    display: flex;
+    align-items: center;
+    gap: 6px;           
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+.likebtn:hover, .show-comments:hover, .post-card-buttons:hover {
+    background-color: #f0f0f0;
+    border-radius: 6px;
+}
+.like-icon, .comment-btn {
+    display: inline-block;
+}
+.like-count, .comment-count {
+    font-weight: 600;
+    color: #333;
+}

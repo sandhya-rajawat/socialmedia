@@ -19,6 +19,7 @@ class PostCommentRequest extends FormRequest
     {
         return [
           'content' => 'required|string|max:1000',
+          'parent_id'=>'nullable|exists:post_comments,id',
         ];
     }
 }

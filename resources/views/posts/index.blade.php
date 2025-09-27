@@ -11,6 +11,11 @@
                 $btn.hide();
             }
         });
+        $(document).on("click", ".show-comments", function(e) {
+            e.preventDefault();
+            let postId = $(this).data("post-id");
+            $(`#comments-${postId}`).toggle();
+        });
         $('.form-submit').submit(function(e) {
             e.preventDefault();
             const $this = $(this);
@@ -111,6 +116,57 @@
                 error: function(xhr) {
                     console.log("Error:", xhr.responseText);
                     $this.prop("disabled", false);
+                }
+            })
+        });
+        // reply
+        $(document).on('click', '.btn-reply', function() {
+            // e.preventDefault();
+            let $this = $(this);
+            const commentId = $this.data('comment-id');
+            let $form = $(`.reply-form[data-comment-id='${commentId}']`);
+            $form.toggle().find('input[name="content"]').focus();
+        });
+        // AJAX submit reply
+        $(document).on('submit', '.reply-form', function(e) {
+            e.preventDefault();
+            let $this = $(this);
+            const content = $this.find('input[name="content"]').val().trim();
+            if (content === '') return;
+            const parentId = $this.find('input[name="parent_id"]').val();
+            console.log(parentId);
+            console.log('sandhya');
+            const replyData = $this.find('.reply-input').val();
+            const postId = $this.data('post-id');
+            let commentUrl = "{{ route('posts.comments.store', ':post') }}";
+            commentUrl = commentUrl.replace(':post', postId);
+            $.ajax({
+                type: 'POST',
+                url: commentUrl,
+                data: {
+                    content: content,
+                    parent_id: parentId,
+                    _token: "{{ csrf_token() }}"
+                },
+                beforeSend: function() {
+                    $this.find('.btn-send').prop("disabled", true);
+                },
+                success: function(respose) {
+                    if (respose.success) {
+                        let $repliesList = $this.siblings('ul');
+                        if (!$repliesList.length) {
+                            $repliesList = $('<ul class="list-unstyled ml-4"></ul>');
+                            $this.after($repliesList);
+                        }
+                        $repliesList.prepend(respose.html);
+                        $this.hide();
+                        $this.find('input[name="content"]').val('');
+                    }
+                    $this.find('.btn-send').prop("disabled", false);
+                },
+                error: function(xhr) {
+                    console.error("Error creating post:", xhr.responseText);
+                    $this.find('.btn-send').prop("disabled", false);
                 }
             })
         });
