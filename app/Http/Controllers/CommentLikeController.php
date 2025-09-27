@@ -24,7 +24,7 @@ class CommentLikeController extends Controller
         return response()->json([
             'success' => true,
             'is_liked' => $is_liked,
-            'likeCount' => $likeCount
+            'likeCount' => $likeCount,
         ]);
     }
 }

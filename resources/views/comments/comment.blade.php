@@ -16,12 +16,18 @@
                         style="width:23px; height:23px" class="icon">
                 </button>
                 <span class="like-count">{{ $comment->likes()->count()}}</span>
-                <button type="button" class="btn-reply btn-link btn-sm" data-comment-id="{{ $comment->id }}">Reply</button>
+                <button type="button" class="btn-reply" data-comment-id="{{ $comment->id }}">
+                    Reply
+                </button>
                 <!-- Reply form -->
-                <form class="reply-form mb-1" data-comment-id="{{ $comment->id }}" data-post-id="{{$post->id}}" style="display:none;">
-                    <input type="text" name="content" class="reply-text mb-1 reply-input" placeholder="Write a reply..." />
-                    <input type="hidden" name="parent_id" value="{{ $comment->id }}">
-                    <button type="submit" class="btn-send btn-primary btn-sm">Reply</button>
+                <form class="reply-form mb-2" data-comment-id="{{ $comment->id }}" data-post-id="{{$post->id}}" style="display:none;">
+                    <div class="reply-box">
+                        <input type="text" name="content" class="reply-input" placeholder="Write a reply..." />
+                        <input type="hidden" name="parent_id" value="{{ $comment->id }}">
+                        <button type="submit" class="btn-send">
+                            <img src="{{ asset('assets/images/profile_post/reply.png') }}" style="width:20px; height:20px;">
+                        </button>
+                    </div>
                 </form>
                 @if($comment->replies->count())
                 <ul class="list-unstyled ml-4">
@@ -33,10 +39,11 @@
                                 <small class="text-muted">{{ $reply->created_at->diffForHumans() }}</small>
                             </div>
                             <p class="mb-1">{{ $reply->content }}</p>
-                            <div class="comment-actions">
+                            <!-- Like actions under reply -->
+                            <div class="comment-actions d-flex align-items-center gap-2">
                                 <button type="button" class="btn btn-link btn-sm like-btn" data-comment-id="{{ $reply->id }}">
                                     <img src="{{ $reply->is_liked ? asset('assets/images/profile_post/like.png') : asset('assets/images/profile_post/unlike.png') }}"
-                                        style="width:23px; height:23px" class="icon">
+                                        style="width:20px; height:20px;" class="icon">
                                 </button>
                                 <span class="like-count">{{ $reply->likes()->count() }}</span>
                             </div>
@@ -45,6 +52,3 @@
                     @endforeach
                 </ul>
                 @endif
-            </div>
-        </div>
-    </li>

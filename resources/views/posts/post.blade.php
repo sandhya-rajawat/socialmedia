@@ -78,28 +78,29 @@
       class="post-content"
       alt="post image" />
   </div> -->
-    <div class="mb-3">
-        <!-- Reactions -->
-        <div class="argon-reaction">
-            <span class="like-btn">
-                <a href="#" class="post-card-buttons" id="reactions"><i class="bx bxs-like mr-2"></i>
-                    Likes:{{ $post->likes_count }}</a>
-            </span>
-        </div>
-        <button class="post-card-buttons" id="show-comments" type="button" style="border: none; background:none;">
-            <img src="assets/images/profile_post/chat.png" alt="chat" width="25" class="mr-2"
-                style="background: none; cursor: pointer;" />
-            5
+  <div class="mb-3 post-reactions">
+    <!-- Like Button -->
+    <div class="argon-reaction">
+        <button class="likebtn" data-post-id="{{ $post->id }}" type="button">
+            <img src="{{ $post->isliked ? asset('assets/images/profile_post/like.png') : asset('assets/images/profile_post/unlike.png') }}"
+                 width="20" class="like-icon" alt="Like" />
+            <span class="like-count">{{ $post->likes()->count() }}</span>
         </button>
-        <div class="dropdown dropup share-dropup">
-            <a href="#" class="post-card-buttons" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                <i class="bx bx-share-alt mr-2"></i> Share
-            </a>
-        </div>
     </div>
+    <!-- Comment Button -->
+    <button class="show-comments" data-post-id="{{ $post->id }}" type="button">
+        <img src="assets/images/profile_post/chat.png" alt="chat" width="25" class="comment-btn" />
+        <span class="comment-count">{{ $post->comments()->count() }}</span>
+    </button>
+    <!-- Share Button -->
+    <div class="dropdown dropup share-dropup">
+        <a href="#" class="post-card-buttons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="bx bx-share-alt mr-2"></i> Share
+        </a>
+    </div>
+</div>
     <!-- comments -->
-    <div class="border-top pt-3 hide-comments">
+    <div class="border-top pt-3 hide-comments" id="comments-{{ $post->id }}">
         <div class="row bootstrap snippets">
             <div class="col-md-12">
                 <div class="comment-wrapper">
@@ -108,7 +109,8 @@
                             <ul class="media-list comments-list">
                                 <li class="media comment-form">
                                     <a href="#" class="pull-left">
-                                        <img src="assets/images/users/user-4.jpg" alt="" class="img-circle" />
+                                        <img src="assets/images/users/user-4.jpg" alt=""
+                                            class="img-circle" />
                                     </a>
                                     <div class="media-body">
                                         <form action="" method="" role="form" class="form-submit"
