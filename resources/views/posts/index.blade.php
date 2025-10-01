@@ -15,16 +15,9 @@
             e.preventDefault();
             let postId = $(this).data("post-id");
             let $commentsBox = $(`#comments-${postId}`);
-            $commentsBox.slideToggle();
-            localStorage.setItem("comments-" + postId, $commentsBox.is(":visible").toString());
+            $commentsBox.toggleClass('hidden');
         });
-        $(".hide-comments").each(function() {
-            let postId = this.id.split("comments-")[1];
-            let savedState = localStorage.getItem("comments-" + postId);
-            if (savedState === "true") $(this).show();
-            else $(this).hide();
-        });
-        $('.form-submit').submit(function(e) {
+        $(document).on('submit', '.form-submit', function(e) {
             e.preventDefault();
             const $this = $(this);
             const postId = $this.data('post-id');

@@ -100,7 +100,7 @@
     </div>
 </div>
     <!-- comments -->
-    <div class="border-top pt-3 hide-comments" id="comments-{{ $post->id }}">
+  <div class="border-top pt-3 hide-comments hidden" id="comments-{{ $post->id }}" data-post-id="{{ $post->id }}" >
         <div class="row bootstrap snippets">
             <div class="col-md-12">
                 <div class="comment-wrapper">
