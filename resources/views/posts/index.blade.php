@@ -14,7 +14,15 @@
         $(document).on("click", ".show-comments", function(e) {
             e.preventDefault();
             let postId = $(this).data("post-id");
-            $(`#comments-${postId}`).toggle();
+            let $commentsBox = $(`#comments-${postId}`);
+            $commentsBox.slideToggle();
+            localStorage.setItem("comments-" + postId, $commentsBox.is(":visible").toString());
+        });
+        $(".hide-comments").each(function() {
+            let postId = this.id.split("comments-")[1];
+            let savedState = localStorage.getItem("comments-" + postId);
+            if (savedState === "true") $(this).show();
+            else $(this).hide();
         });
         $('.form-submit').submit(function(e) {
             e.preventDefault();
@@ -88,8 +96,9 @@
             let commentUrl = "{{ route('comments.like.store', ':comment') }}";
             commentUrl = commentUrl.replace(':comment', commentId);
             let $img = $this.find('img');
-            let $like_count = $this.closest('.comment-actions').find('.like-count');
-            console.log(commentUrl);
+            let $like_count = $("#comment-like-count-" + commentId);
+            console.log($like_count);
+            // console.log(commentUrl);
             $.ajax({
                 url: commentUrl,
                 type: "POST",
@@ -100,7 +109,7 @@
                     $this.prop("disabled", true);
                 },
                 success: function(response) {
-                    let newCount = response.likeCount;
+                    let newCount = response.likes_count;
                     let isLiked = response.is_liked;
                     $like_count.text(newCount);
                     console.log($like_count);
@@ -134,8 +143,8 @@
             const content = $this.find('input[name="content"]').val().trim();
             if (content === '') return;
             const parentId = $this.find('input[name="parent_id"]').val();
-            console.log(parentId);
-            console.log('sandhya');
+            // console.log(parentId);
+            // console.log('sandhya');
             const replyData = $this.find('.reply-input').val();
             const postId = $this.data('post-id');
             let commentUrl = "{{ route('posts.comments.store', ':post') }}";
