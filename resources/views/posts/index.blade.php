@@ -15,21 +15,15 @@
             e.preventDefault();
             let postId = $(this).data("post-id");
             let $commentsBox = $(`#comments-${postId}`);
-            $commentsBox.toggle();
-            let isVisible = $commentsBox.is(":visible");
-            localStorage.setItem("comments-" + postId, isVisible);
-            console.log("hello");
+            $commentsBox.slideToggle();
+            localStorage.setItem("comments-" + postId, $commentsBox.is(":visible").toString());
         });
-        // On page load, restore state
-            $(".hide-comments").each(function() {
-                let postId = $(this).data("post-id");
-                let savedState = localStorage.getItem("comments-" + postId);
-                if (savedState === "true") {
-                    $(this).show();
-                } else {
-                        $(this).hide();
-                }
-            });
+        $(".hide-comments").each(function() {
+            let postId = this.id.split("comments-")[1];
+            let savedState = localStorage.getItem("comments-" + postId);
+            if (savedState === "true") $(this).show();
+            else $(this).hide();
+        });
         $('.form-submit').submit(function(e) {
             e.preventDefault();
             const $this = $(this);
