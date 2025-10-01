@@ -15,7 +15,7 @@
                     <img src="{{ $comment->is_liked ? asset('assets/images/profile_post/like.png') : asset('assets/images/profile_post/unlike.png') }}"
                         style="width:23px; height:23px" class="icon">
                 </button>
-                <span class="like-count">{{ $comment->likes()->count()}}</span>
+                <span class="like-count" id="comment-like-count-{{ $comment->id }}">{{ $comment->likes()->count()}}</span>
                 <button type="button" class="btn-reply" data-comment-id="{{ $comment->id }}">
                     Reply
                 </button>
@@ -45,7 +45,7 @@
                                     <img src="{{ $reply->is_liked ? asset('assets/images/profile_post/like.png') : asset('assets/images/profile_post/unlike.png') }}"
                                         style="width:20px; height:20px;" class="icon">
                                 </button>
-                                <span class="like-count">{{ $reply->likes()->count() }}</span>
+                                <span class="like-count"id="comment-like-count-{{ $reply->id }}">{{ $reply->likes()->count() }}</span>
                             </div>
                         </div>
                     </li>

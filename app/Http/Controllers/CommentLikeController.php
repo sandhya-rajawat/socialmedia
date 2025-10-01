@@ -20,11 +20,11 @@ class CommentLikeController extends Controller
             $comment->likes()->firstOrCreate(['user_id' => $user->id]);
             $is_liked = true;
         }
-        $likeCount = $comment->likes()->count();
+        $likes_count = $comment->likes()->count();
         return response()->json([
             'success' => true,
             'is_liked' => $is_liked,
-            'likeCount' => $likeCount,
+            'likes_count' => $likes_count,
         ]);
     }
 }
