@@ -12,12 +12,17 @@ class PostCommentController extends Controller
         $comment = $post->comments()->create([
             'user_id' => Auth::id(),
             'content' => $request->content,
+            'parent_id' => $request->parent_id,
         ]);
         $comment->load('user');
-        $commenthtml = view('comments.comment', compact('comment'))->render();
+        $commenthtml = view('comments.comment', [
+            'comment' => $comment,
+            'post' => $post,
+        ])->render();
+
         return response()->json([
             'success' => true,
-            'html' => $commenthtml
+            'html' => $commenthtml,
         ]);
     }
 }
