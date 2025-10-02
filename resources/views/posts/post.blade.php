@@ -8,6 +8,21 @@
                         {{ $post->user->first_name }} {{ $post->user->last_name }}
                     @endif
                 </a>
+                @if ((int) $post->user_id === auth()->id())
+                    <div class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="bx bx-dots-horizontal-rounded"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="{{ route('posts.edit', $post->id) }}">Edit</a>
+                            <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="dropdown-item">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                @endif
                 <div class="dropdown">
                     <a href="#" class="post-more-settings" role="button" data-toggle="dropdown" id="postOptions"
                         aria-haspopup="true" aria-expanded="false">
@@ -78,29 +93,31 @@
       class="post-content"
       alt="post image" />
   </div> -->
-  <div class="mb-3 post-reactions">
-    <!-- Like Button -->
-    <div class="argon-reaction">
-        <button class="likebtn" data-post-id="{{ $post->id }}" type="button">
-            <img src="{{ $post->isliked ? asset('assets/images/profile_post/like.png') : asset('assets/images/profile_post/unlike.png') }}"
-                 width="20" class="like-icon" alt="Like" />
-            <span class="like-count">{{ $post->likes()->count() }}</span>
+    <div class="mb-3 post-reactions">
+        <!-- Like Button -->
+        <div class="argon-reaction">
+            <button class="likebtn" data-post-id="{{ $post->id }}" type="button">
+                <img src="{{ $post->isliked ? asset('assets/images/profile_post/like.png') : asset('assets/images/profile_post/unlike.png') }}"
+                    width="20" class="like-icon" alt="Like" />
+                <span class="like-count">{{ $post->likes()->count() }}</span>
+            </button>
+        </div>
+        <!-- Comment Button -->
+        <button class="show-comments" data-post-id="{{ $post->id }}" type="button">
+            <img src="assets/images/profile_post/chat.png" alt="chat" width="25" class="comment-btn" />
+            <span class="comment-count">{{ $post->comments()->count() }}</span>
         </button>
+        <!-- Share Button -->
+        <div class="dropdown dropup share-dropup">
+            <a href="#" class="post-card-buttons" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="bx bx-share-alt mr-2"></i> Share
+            </a>
+        </div>
     </div>
-    <!-- Comment Button -->
-    <button class="show-comments" data-post-id="{{ $post->id }}" type="button">
-        <img src="assets/images/profile_post/chat.png" alt="chat" width="25" class="comment-btn" />
-        <span class="comment-count">{{ $post->comments()->count() }}</span>
-    </button>
-    <!-- Share Button -->
-    <div class="dropdown dropup share-dropup">
-        <a href="#" class="post-card-buttons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="bx bx-share-alt mr-2"></i> Share
-        </a>
-    </div>
-</div>
     <!-- comments -->
-  <div class="border-top pt-3 hide-comments hidden" id="comments-{{ $post->id }}" data-post-id="{{ $post->id }}" >
+    <div class="border-top pt-3 hide-comments hidden" id="comments-{{ $post->id }}"
+        data-post-id="{{ $post->id }}">
         <div class="row bootstrap snippets">
             <div class="col-md-12">
                 <div class="comment-wrapper">

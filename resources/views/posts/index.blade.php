@@ -1,5 +1,6 @@
 @foreach ($posts as $post)
     @include('posts.post', ['post' => $post])
+      <a href="{{ route('posts.show', $post->id) }}">View Post</a>
 @endforeach
 <script>
     $(document).ready(function() {
