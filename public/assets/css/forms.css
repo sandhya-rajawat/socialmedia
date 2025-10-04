@@ -388,15 +388,91 @@
     cursor: pointer;
     font-size: 14px;
 }
+.show-comments{
+    width: 10px;
+}
 .likebtn:hover, .show-comments:hover, .post-card-buttons:hover {
     background-color: #f0f0f0;
     border-radius: 6px;
 }
 .like-icon, .comment-btn {
     display: inline-block;
+     gap: 10px;  
+}
+.comment-btn{
+    width: 18px;
+    margin-right: 10px;
+    margin-left: 50px;
+    
 }
 .like-count, .comment-count {
+  
     font-weight: 600;
     color: #333;
 }
+.share-btn{
+    width: 50px;
+    font-weight: 900;
+    margin-left: 100px;
+    margin-bottom: 10px;
+}
+.global-btn{
+     width: 13px;
+     margin-left: 10px;
+}
 .hidden { display: none; }
+/* Weather Card Styling */
+.third-section .card {
+    overflow: hidden;
+    margin-top: 20px;
+    /* background: #fff; */
+    width: 200px;
+    height:200px;
+    margin-left: 100%;
+}
+.weather-card-header p {
+    font-size: 0.9rem;  
+    font-weight: 500;
+    color: #666;
+}
+.weather-card-header a {
+    font-size: 0.85rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+.weather-card.display-4 {
+    font-size: 60px !important;  /* text size bada karne ke liye */
+       font-weight: 200;       /* optional, text ko bold karne ke liye */
+    line-height: 1;                /* spacing adjust karne ke liye */
+}
+.weather-quick img {
+    vertical-align: middle;
+}
+.weather-quick h1 {
+    display: inline-block;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+.weather-quick .col-md-4 p {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+.second-section{
+    width: 500%;
+ 
+}
+/* show-post */
+.post .font-bold {
+    font-weight: 700;
+    margin: 0;
+}
+.post .text-gray-500 {
+    color: #6b7280; 
+    font-size: 0.875rem;
+}
+.form-control{
+   font-size: 15px;
+}

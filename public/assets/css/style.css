@@ -21,6 +21,7 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background-color:#ececec;
 }
 
 .js body {
@@ -278,14 +279,21 @@ button:focus {
     font-weight: 500;
 }
 
-#sidebar-wrapper {
+
+
+
+ 
+
+/* #sidebar-wrapper {
     -webkit-transition: margin 0.25s ease-out;
     -moz-transition: margin 0.25s ease-out;
     -o-transition: margin 0.25s ease-out;
     transition: margin 0.25s ease-out;
     z-index: 1000;
+} */
+.media-body{
+    width: 600%;
 }
-
 .postFormHeader {
     background-color: #e9ebee;
     padding: 8px 20px;

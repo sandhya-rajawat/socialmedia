@@ -1,6 +1,6 @@
 @foreach ($posts as $post)
     @include('posts.post', ['post' => $post])
-      <a href="{{ route('posts.show', $post->id) }}">View Post</a>
+      {{-- <a href="{{ route('posts.show', $post->id) }}">View Post</a> --}}
 @endforeach
 <script>
     $(document).ready(function() {
@@ -71,9 +71,9 @@
                         const status = response.status;
                         $likeCount.text(newCount);
                         if (response.is_liked === true) {
-                            $likeIcon.attr('src', '/assets/images/profile_post/like.png');
+                            $likeIcon.attr('src', '/assets/images/profile_post/like-new.png');
                         } else {
-                            $likeIcon.attr('src', '/assets/images/profile_post/unlike.png');
+                            $likeIcon.attr('src', '/assets/images/profile_post/unlike-new.png');
                         }
                     }
                 },
@@ -109,10 +109,10 @@
                     console.log($like_count);
                     if (isLiked) {
                         $img.attr('src',
-                            "{{ asset('assets/images/profile_post/like.png') }}");
+                            "{{ asset('assets/images/profile_post/like-new.png') }}");
                     } else {
                         $img.attr('src',
-                            "{{ asset('assets/images/profile_post/unlike.png') }}");
+                            "{{ asset('assets/images/profile_post/unlike-new.png') }}");
                     }
                     $this.prop("disabled", false);
                 },

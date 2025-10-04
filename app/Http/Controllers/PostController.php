@@ -12,6 +12,7 @@ class PostController extends Controller
         $posts = Post::with('user', 'likes', 'comments.user')->withCount('likes')->latest()->get();
         return view('posts.index', compact('posts'));
     }
+    
     public function store(PostRequest $request)
     {
         $post = Post::create([
@@ -26,12 +27,14 @@ class PostController extends Controller
             'html' => $postHtml,
         ]);
     }
+
     public function show(Post $post)
     {
         $post->load('user', 'likes', 'comments.user');
         $post->is_liked = $post->likes->contains(Auth::id());
         return view('posts.show', compact('post'));
     }
+
     public function edit(Post $post)
     {
         if ($post->user_id !== Auth::id()) {
@@ -39,6 +42,7 @@ class PostController extends Controller
         }
         return view('posts.edit', compact('post'));
     }
+
     public function update(PostRequest $request, Post $post)
     {
         if ($post->user_id !== Auth::id()) {
@@ -47,6 +51,7 @@ class PostController extends Controller
         $post->update(['content' => $request->content]);
         return redirect()->route('posts.index');
     }
+
     public function destroy(Post $post)
     {
         if ($post->user_id !== Auth::id()) {

@@ -1,6 +1,6 @@
 <div class="post border-bottom p-3 bg-white w-shadow">
     <div class="media text-muted pt-3">
-        <img src="assets/images/users/user-1.jpg" alt="Online user" class="mr-3 post-user-image" />
+        <img src="{{asset('assets/images/users/user-1.jpg')}}" alt="Online user" class="mr-3 post-user-image" />
         <div class="media-body pb-3 mb-0 small lh-125">
             <div class="d-flex justify-content-between align-items-center w-100">
                 <a href="#" class="text-gray-dark post-user-name">
@@ -79,7 +79,9 @@
                     </div>
                 </div>
             </div>
-            <span class="d-block">{{ $post->created_at->diffForHumans() }} <i class="bx bx-globe ml-3"></i></span>
+            <span class="d-block">{{ $post->created_at->diffForHumans() }} <img src="{{asset('assets/images/profile_post/globle.png')}}" class="global-btn"></span>
+               
+            
         </div>
     </div>
     <div class="mt-3">
@@ -97,21 +99,22 @@
         <!-- Like Button -->
         <div class="argon-reaction">
             <button class="likebtn" data-post-id="{{ $post->id }}" type="button">
-                <img src="{{ $post->isliked ? asset('assets/images/profile_post/like.png') : asset('assets/images/profile_post/unlike.png') }}"
+                <img src="{{ $post->isliked ? asset('assets/images/profile_post/like-new.png') : asset('assets/images/profile_post/unlike-new.png') }}"
                     width="20" class="like-icon" alt="Like" />
                 <span class="like-count">{{ $post->likes()->count() }}</span>
             </button>
         </div>
         <!-- Comment Button -->
         <button class="show-comments" data-post-id="{{ $post->id }}" type="button">
-            <img src="assets/images/profile_post/chat.png" alt="chat" width="25" class="comment-btn" />
+            <img src="{{asset('assets/images/profile_post/chat-new.png')}}" alt="chat" width="25" class="comment-btn" />
             <span class="comment-count">{{ $post->comments()->count() }}</span>
         </button>
         <!-- Share Button -->
         <div class="dropdown dropup share-dropup">
-            <a href="#" class="post-card-buttons" data-toggle="dropdown" aria-haspopup="true"
+            <a href="#" class="post-card" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                <i class="bx bx-share-alt mr-2"></i> Share
+                 <img src="{{asset('assets/images/profile_post/share.png')}}" alt="share" width="25" class="share-btn" />
+              Share
             </a>
         </div>
     </div>

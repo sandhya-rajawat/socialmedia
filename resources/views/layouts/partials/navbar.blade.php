@@ -3,7 +3,7 @@
         <ul class="nav navbar-nav enable-mobile px-2">
             <li class="nav-item">
                 <button type="button" class="btn nav-link p-0">
-                    <img src="assets/images/icons/theme/post-image.png" class="f-nav-icon" alt="Quick make post" />
+                    <img src="{{asset('assets/images/icons/theme/post-image.png')}}" class="f-nav-icon" alt="Quick make post" />
                 </button>
             </li>
             <li class="nav-item w-100 py-2">
@@ -23,14 +23,14 @@
             <li class="nav-item">
                 <a href="messages.html" class="nav-link nav-icon nav-links message-drop drop-w-tooltip"
                     data-placement="bottom" data-title="Messages">
-                    <img src="assets/images/icons/navbar/message.png" class="message-dropdown f-nav-icon"
+                    <img src="{{asset('assets/images/icons/navbar/message.png')}}" class="message-dropdown f-nav-icon"
                         alt="navbar icon" />
                 </a>
             </li>
         </ul>
         <ul class="navbar-nav mr-5 flex-row" id="main_menu">
             <a class="navbar-brand nav-item mr-lg-5" href="index.html">
-                <img src="assets/images/logo.png" class="logo-img " style="width: 64px; height: 64px;" alt="Logo">
+                <img src="{{asset('assets/images/logo.png')}}" class="logo-img " style="width: 64px; height: 64px;" alt="Logo">
             </a>
             <form class="w-30 mx-2 my-auto d-inline form-inline mr-5 dropdown search-form">
                 <div class="input-group" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -60,7 +60,7 @@
                         <li class="dropdown-item">
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-6.png" alt="Search result" />
+                                    <img src="{{asset('assets/images/users/user-6.png')}}" alt="Search result" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -75,7 +75,7 @@
                         <li class="dropdown-item">
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-5.png" alt="Search result" />
+                                    <img src="{{asset('assets/images/users/user-5.png')}}" alt="Search result" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -90,7 +90,7 @@
                         <li class="dropdown-item">
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/groups/group-2.jpg" alt="Search result" />
+                                    <img src="{{asset('assets/images/groups/group-2.jpg')}}" alt="Search result" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -105,12 +105,12 @@
                         <li class="dropdown-item">
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/groups/group-1.png" alt="Search result" />
+                                    <img src="{{asset('assets/images/groups/group-1.png')}}" alt="Search result" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
                                 <a href="#" class="notification-user">Argon Social Network
-                                    <img src="assets/images/theme/verify.png" width="10px" class="verify"
+                                    <img src="{{asset('assets/images/theme/verify.png')}}" width="10px" class="verify"
                                         alt="Group verified" /></a>
                                 <a href="#"
                                     class="btn btn-quick-link join-group-btn border text-right float-right">
@@ -129,7 +129,7 @@
                 <a href="#" class="nav-link nav-icon nav-links drop-w-tooltip" data-toggle="dropdown"
                     data-placement="bottom" data-title="Create" role="button" aria-haspopup="true"
                     aria-expanded="false">
-                    <img src="assets/images/icons/navbar/create.png" alt="navbar icon" />
+                    <img src="{{asset('assets/images/icons/navbar/create.png')}}" alt="navbar icon" />
                 </a>
                 <div class="dropdown-menu dropdown-menu-right nav-dropdown-menu">
                     <a href="#" class="dropdown-item" aria-describedby="createGroup">
@@ -163,7 +163,7 @@
                 <a href="#" class="nav-link nav-links message-drop drop-w-tooltip" data-toggle="dropdown"
                     data-placement="bottom" data-title="Messages" role="button" aria-haspopup="true"
                     aria-expanded="false">
-                    <img src="assets/images/icons/navbar/message.png" class="message-dropdown" alt="navbar icon" />
+                    <img src="{{asset('assets/images/icons/navbar/message.png')}}" class="message-dropdown" alt="navbar icon" />
                     <span class="badge badge-pill badge-primary">1</span>
                 </a>
                 <ul class="dropdown-menu notify-drop dropdown-menu-right nav-drop shadow-sm">
@@ -185,7 +185,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-6.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-6.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -202,7 +202,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-5.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-5.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -216,7 +216,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-7.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-7.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -230,7 +230,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-8.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-8.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -246,7 +246,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-9.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-9.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -260,7 +260,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-10.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-10.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -281,7 +281,7 @@
                 <a href="#" class="nav-link nav-links rm-drop-mobile drop-w-tooltip" data-toggle="dropdown"
                     data-placement="bottom" data-title="Notifications" role="button" aria-haspopup="true"
                     aria-expanded="false">
-                    <img src="assets/images/icons/navbar/notification.png" class="notification-bell"
+                    <img src="{{asset('assets/images/icons/navbar/notification.png')}}" class="notification-bell"
                         alt="navbar icon" />
                     <span class="badge badge-pill badge-primary">3</span>
                 </a>
@@ -303,7 +303,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-10.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-10.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -322,7 +322,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-7.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-7.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -341,7 +341,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-8.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-8.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -359,7 +359,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-11.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-11.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -379,7 +379,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-5.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-5.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -398,7 +398,7 @@
                         <li>
                             <div class="col-md-2 col-sm-2 col-xs-2">
                                 <div class="notify-img">
-                                    <img src="assets/images/users/user-12.png" alt="notification user image" />
+                                    <img src="{{asset('assets/images/users/user-12.png')}}" alt="notification user image" />
                                 </div>
                             </div>
                             <div class="col-md-10 col-sm-10 col-xs-10">
@@ -425,7 +425,7 @@
                 <a href="#" class="nav-link nav-links nav-icon drop-w-tooltip" data-toggle="dropdown"
                     data-placement="bottom" data-title="Pages" role="button" aria-haspopup="true"
                     aria-expanded="false">
-                    <img src="assets/images/icons/navbar/flag.png" alt="navbar icon" />
+                    <img src="{{asset('assets/images/icons/navbar/flag.png')}}" alt="navbar icon" />
                 </a>
                 <div class="dropdown-menu dropdown-menu-right nav-drop">
                     <a class="dropdown-item" href="newsfeed-2.html">Newsfeed 2</a>
@@ -436,28 +436,28 @@
             <li class="nav-item s-nav d-mobile">
                 <a href="marketplace.html" class="nav-link nav-links nav-icon drop-w-tooltip" data-placement="bottom"
                     data-title="Marketplace">
-                    <img src="assets/images/icons/navbar/market.png" alt="navbar icon" />
+                    <img src="{{asset('assets/images/icons/navbar/market.png')}}" alt="navbar icon" />
                 </a>
             </li>
             <li class="nav-item s-nav">
                 <a href="profile.html" class="nav-link nav-links">
                     <div class="menu-user-image">
-                        <img src="assets/images/users/user-4.jpg" class="menu-user-img ml-1" alt="Menu Image" />
+                        <img src="{{asset('assets/images/users/user-4.jpg')}}" class="menu-user-img ml-1" alt="Menu Image" />
                     </div>
                 </a>
             </li>
             <li class="nav-item s-nav nav-icon dropdown">
                 <a href="settings.html" data-toggle="dropdown" data-placement="bottom" data-title="Settings"
                     class="nav-link settings-link rm-drop-mobile drop-w-tooltip" id="settings-dropdown"><img
-                        src="assets/images/icons/navbar/settings.png" class="nav-settings" alt="navbar icon" /></a>
+                        src="{{asset('assets/images/icons/navbar/settings.png')}}" class="nav-settings" alt="navbar icon" /></a>
                 <div class="dropdown-menu dropdown-menu-right settings-dropdown shadow-sm"
                     aria-labelledby="settings-dropdown">
                     <a class="dropdown-item" href="#">
-                        <img src="assets/images/icons/navbar/help.png" alt="Navbar icon" />
+                        <img src="{{asset('assets/images/icons/navbar/help.png')}}" alt="Navbar icon" />
                         Help Center</a>
                     <a class="dropdown-item d-flex align-items-center dark-mode" onClick="event.stopPropagation();"
                         href="#">
-                        <img src="assets/images/icons/navbar/moon.png" alt="Navbar icon" />
+                        <img src="{{asset('assets/images/icons/navbar/moon.png')}}" alt="Navbar icon" />
                         Dark Mode
                         <button type="button" class="btn btn-lg btn-toggle ml-auto" data-toggle="button"
                             aria-pressed="false" autocomplete="off">
@@ -465,14 +465,14 @@
                         </button>
                     </a>
                     <a class="dropdown-item" href="#">
-                        <img src="assets/images/icons/navbar/gear-1.png" alt="Navbar icon" /> Settings</a>
+                        <img src="{{asset('assets/images/icons/navbar/gear-1.png')}}" alt="Navbar icon" /> Settings</a>
                     <a class="dropdown-item logout-btn" href="#">
-                        <img src="assets/images/icons/navbar/logout.png" alt="Navbar icon" />
+                        <img src="{{asset('assets/images/icons/navbar/logout.png')}}" alt="Navbar icon" />
                         Log Out</a>
                 </div>
             </li>
             <button type="button" class="btn nav-link" id="menu-toggle">
-                <img src="assets/images/icons/theme/navs.png" alt="Navbar navs" />
+                <img src="{{asset('assets/images/icons/theme/navs.png')}}" alt="Navbar navs" />
             </button>
         </ul>
     </div>
