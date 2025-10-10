@@ -121,7 +121,7 @@
             success: function(response) {
               if (response.success) {
                 $('#posts-section').prepend(response.html);
-                $('#postForm').var('');
+                $('#postForm').val('');
                 $("#publishbtn").prop("defined", false);
               }
             },

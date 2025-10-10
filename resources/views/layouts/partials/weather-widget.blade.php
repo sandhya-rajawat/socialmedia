@@ -16,10 +16,13 @@
                        </div>
                        <div class="col-md-4">
                            <p class="mb-0 fs-1">
-                               <i class="bx bx-droplet"></i> 15%
+                       <i class="bx bx-droplet"></i> 15%
                            </p>
                            <p class="mb-0 fs-1">
-                               <i class="bx bx-flag"></i> 10km/h
+                             <i class="bx bx-wind"></i> 10km/h
+                             <i class="bx bx-chevron-down"></i>
+<i class="bx bx-droplet"></i>
+<i class="bx bx-wind"></i>
                            </p>
                        </div>
                    </div>

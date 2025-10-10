@@ -1,22 +1,25 @@
 @foreach ($posts as $post)
     @include('posts.post', ['post' => $post])
-      {{-- <a href="{{ route('posts.show', $post->id) }}">View Post</a> --}}
 @endforeach
 <script>
     $(document).ready(function() {
+        console.log($);
         $(document).on('input', ".comment-input", function() {
             let $btn = $(this).closest(".input-group").find('.comment-submit');
             if ($(this).val().trim() !== '') {
                 $btn.show();
             } else {
                 $btn.hide();
+
             }
         });
-        $(document).on("click", ".show-comments", function(e) {
+        $(document).on('click', '.show-comments', function(e) {
             e.preventDefault();
             let postId = $(this).data("post-id");
             let $commentsBox = $(`#comments-${postId}`);
             $commentsBox.toggleClass('hidden');
+            console.log("Toggled comments for post:", postId);
+
         });
         $(document).on('submit', '.form-submit', function(e) {
             e.preventDefault();
@@ -71,9 +74,11 @@
                         const status = response.status;
                         $likeCount.text(newCount);
                         if (response.is_liked === true) {
-                            $likeIcon.attr('src', '/assets/images/profile_post/like-new.png');
+                            $likeIcon.attr('src',
+                                '/assets/images/profile_post/like-new.png');
                         } else {
-                            $likeIcon.attr('src', '/assets/images/profile_post/unlike-new.png');
+                            $likeIcon.attr('src',
+                                '/assets/images/profile_post/unlike-new.png');
                         }
                     }
                 },
