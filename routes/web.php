@@ -17,5 +17,5 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('posts.comments', PostCommentController::class)->only(['store']);
     Route::resource('comments.like', CommentLikeController::class)->only(['store']);
     // Optionally protect 'index' as well
-    Route::get('index', [IndexController::class, 'create'])->name('home');
+    Route::get('/', [IndexController::class, 'create'])->name('home');
 });
