@@ -12,11 +12,10 @@ Route::post('register', [RegisterController::class, 'store']);
 Route::get('login', [LoginController::class, 'create'])->name('login');
 Route::post('login', [LoginController::class, 'store']);
 Route::middleware(['auth'])->group(function () {
-    Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
-    Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+    Route::resource('posts', PostController::class);
     Route::resource('posts.likes', PostLikeController::class)->only(['store']);
     Route::resource('posts.comments', PostCommentController::class)->only(['store']);
     Route::resource('comments.like', CommentLikeController::class)->only(['store']);
     // Optionally protect 'index' as well
-    Route::get('index', [IndexController::class, 'create'])->name('home');
+    Route::get('/', [IndexController::class, 'create'])->name('home');
 });

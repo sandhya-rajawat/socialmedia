@@ -11,8 +11,8 @@
             </div>
             <p class="mb-1">{{ $comment->content }}</p>
             <div class="comment-actions">
-                <button type="submit" class="btn btn-link btn-sm like-btn" data-comment-id="{{ $comment->id }}">
-                    <img src="{{ $comment->is_liked ? asset('assets/images/profile_post/like.png') : asset('assets/images/profile_post/unlike.png') }}"
+                <button type="button" class="btn btn-link btn-sm like-btn" data-comment-id="{{ $comment->id }}">
+                    <img src="{{ $comment->is_liked ? asset('assets/images/profile_post/like-new.png') : asset('assets/images/profile_post/unlike-new.png') }}"
                         style="width:23px; height:23px" class="icon">
                 </button>
                 <span class="like-count" id="comment-like-count-{{ $comment->id }}">{{ $comment->likes()->count()}}</span>
@@ -42,10 +42,10 @@
                             <!-- Like actions under reply -->
                             <div class="comment-actions d-flex align-items-center gap-2">
                                 <button type="button" class="btn btn-link btn-sm like-btn" data-comment-id="{{ $reply->id }}">
-                                    <img src="{{ $reply->is_liked ? asset('assets/images/profile_post/like.png') : asset('assets/images/profile_post/unlike.png') }}"
+                                    <img src="{{ $reply->is_liked ? asset('assets/images/profile_post/like-new.png') : asset('assets/images/profile_post/unlike-new.png') }}"
                                         style="width:20px; height:20px;" class="icon">
                                 </button>
-                                <span class="like-count"id="comment-like-count-{{ $reply->id }}">{{ $reply->likes()->count() }}</span>
+                                <span class="like-count" id="comment-like-count-{{ $reply->id }}">{{ $reply->likes()->count() }}</span>
                             </div>
                         </div>
                     </li>
