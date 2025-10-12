@@ -76,6 +76,19 @@
     #wrapper.toggled .newsfeed-user-card {
         border: 0
     }
+
+    .newsfeed-left-side {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 500px;
+  height: calc(100vh - 122px);
+  overflow-y: auto;
+  background-color: #fff; 
+  z-index: 999; 
+
+}
+
     .newsfeed-right-side-content {
         width: 100%
     }
