@@ -411,9 +411,9 @@
 .post-reactions {
     display: flex;
     align-items: center;
-    gap: 1.5rem; /* Adjust spacing as needed */
-}
+    gap: 1.5rem;
 
+}
 .post-reactions img {
     margin-right: 5px;
 }

@@ -8,9 +8,9 @@
                         {{ $post->user->first_name }} {{ $post->user->last_name }}
                     @endif
                 </a>
+
                 @if ((int) $post->user_id === auth()->id())
                     <div class="dropdown">
-
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="{{ route('posts.edit', $post->id) }}">Edit</a>
                             <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
@@ -77,17 +77,15 @@
                     </div>
                 </div>
             </div>
-            <span class="d-block">{{ $post->created_at->diffForHumans() }} <img
-                    src="{{ asset('assets/images/profile_post/globle.png') }}" class="global-btn" style="wi"></span>
-
-
+            <span class="d-block">{{ $post->created_at->diffForHumans() }}
+                <i class="bx bx-globe ml-3"></i></span>
         </div>
     </div>
+  
 
-    <div class="mt-3">
-        <p>
-            {{ $post->content }}
-        </p>
+    <div class="post-card"
+        onclick="window.location='{{ route('posts.show', $post->id) }}'">
+        <p>  {{ $post->content }}</p>
     </div>
     <!-- <div class="d-block mt-3"> -->
     <!-- <img
@@ -104,30 +102,20 @@
                 <span class="like-count">{{ $post->likes()->count() }}</span>
             </button>
         </div>
-
         <!-- Comment Button -->
         <button class="show-comments d-flex align-items-center" data-post-id="{{ $post->id }}" type="button">
-          <i class="bx bx-message-rounded mr-2"></i>
+            <i class="bx bx-message-rounded mr-2"></i>
             <span class="comment-count">{{ $post->comments()->count() }}</span>
         </button>
-
         <!-- Share Button -->
         <div class="dropdown dropup share-dropup d-flex align-items-center">
             <a href="#" class="post-card d-flex align-items-center" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-
-              <i class="bx bx-share-alt mr-2"></i> Share
-
-              {{-- kkkkkk --}}
-               
+                <i class="bx bx-share-alt mr-2"></i> Share
+                {{-- kkkkkk --}}
             </a>
-
-
-
-
         </div>
     </div>
-
     <!-- comments -->
     <div class="border-top pt-3 hide-comments hidden" id="comments-{{ $post->id }}"
         data-post-id="{{ $post->id }}">

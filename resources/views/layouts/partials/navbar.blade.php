@@ -472,8 +472,15 @@
                 </div>
             </li>
             <button type="button" class="btn nav-link" id="menu-toggle">
-                <img src="{{asset('assets/images/icons/theme/navs.png')}}" alt="Navbar navs" />
+                 <i class='bx bx-menu'></i>
             </button>
         </ul>
     </div>
 </nav>
+
+
+
+
+
+
+ 
