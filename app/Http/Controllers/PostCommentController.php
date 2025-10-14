@@ -25,4 +25,13 @@ class PostCommentController extends Controller
             'html' => $commenthtml,
         ]);
     }
+    public function show(PostCommentRequest $request, Post $post){
+        $comments=$post->comments()->with('user')->latest()->paginate(3);
+
+        if($request->ajax()){
+            return view('comments.comment-list',compact('comments'))->render();
+        }
+        return view('posts.show',compact('post','comments'));
+    }
+    
 }
