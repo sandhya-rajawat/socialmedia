@@ -400,3 +400,23 @@
     color: #333;
 }
 .hidden { display: none; }
+.global-btn{
+     width: 13px;
+     margin-left: 10px;
+}
+.share-dropup{
+   margin-right: 200px;
+}
+
+.post-reactions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+}
+.post-reactions img {
+    margin-right: 5px;
+}
+.form-control{
+    font-size: medium;
+}
