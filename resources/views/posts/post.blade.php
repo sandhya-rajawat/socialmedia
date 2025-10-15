@@ -186,13 +186,15 @@
                                     </a>
                                 </li> --}}
                                 <li class="media">
+                                     @if ($post->comments()->count() > 3)
                                     <div class="media-body">
                                         <div class="comment-see-more text-center">
-                                            <button type="button" class="btn btn-link fs-8">
+                                            <button type="button" class="btn btn-link fs-8 see-more">
                                                 See More
                                             </button>
                                         </div>
                                     </div>
+                                    @endif
                                 </li>
                             </ul>
                         </div>
