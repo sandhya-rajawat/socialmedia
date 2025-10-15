@@ -1,11 +1,10 @@
 @foreach ($posts as $post)
     @include('posts.post', ['post' => $post])
-      
   
 @endforeach
 <script>
     $(document).ready(function() {
-        console.log($);
+        // console.log($);
         $(document).on('input', ".comment-input", function() {
             let $btn = $(this).closest(".input-group").find('.comment-submit');
             if ($(this).val().trim() !== '') {
@@ -20,7 +19,7 @@
             let postId = $(this).data("post-id");
             let $commentsBox = $(`#comments-${postId}`);
             $commentsBox.toggleClass('hidden');
-            console.log("Toggled comments for post:", postId);
+            // console.log("Toggled comments for post:", postId);
 
         });
         $(document).on('submit', '.form-submit', function(e) {
@@ -180,5 +179,12 @@
                 }
             })
         });
-    });
+    $(document).on('click', '.see-more-btn', function () {
+    let postId = $(this).data('post');
+    $('.extra-comment-' + postId).removeClass('hidden');
+    $(this).remove(); // Button hata de after showing
+});
+   
+});
+    
 </script>
