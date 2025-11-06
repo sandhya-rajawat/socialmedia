@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
+use App\Models\PostComment;
 use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
@@ -27,14 +28,12 @@ class PostController extends Controller
             'html' => $postHtml,
         ]);
     }
-
     public function show(Post $post)
     {
         $post->load('user', 'likes', 'comments.user');
         $post->is_liked = $post->likes->contains(Auth::id());
         return view('posts.show', compact('post'));
     }
-
     public function edit(Post $post)
     {
         if ($post->user_id !== Auth::id()) {
@@ -42,7 +41,6 @@ class PostController extends Controller
         }
         return view('posts.edit', compact('post'));
     }
-
     public function update(PostRequest $request, Post $post)
     {
         if ($post->user_id !== Auth::id()) {
@@ -51,7 +49,6 @@ class PostController extends Controller
         $post->update(['content' => $request->content]);
         return redirect()->route('posts.index');
     }
-
     public function destroy(Post $post)
     {
         if ($post->user_id !== Auth::id()) {

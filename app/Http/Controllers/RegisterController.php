@@ -26,6 +26,7 @@ class RegisterController extends Controller
             return redirect()->route('login')->with('success', 'Account created! Please log in.');
         } else {
             return back()->with('error', 'Failed to create account!');
+      
         }
     }
 }

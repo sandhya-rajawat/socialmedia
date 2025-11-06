@@ -1,4 +1,5 @@
-    <li class="media mb-3">
+
+   <li class="media mb-3">
         <!-- <a href="#" class="pull-left"> -->
         <!-- <img src="{{ $comment->user->photo ?? asset('assets/images/users/default.png') }}"
                 alt="{{ $comment->user->first_name }}"
@@ -52,3 +53,4 @@
                     @endforeach
                 </ul>
                 @endif
+             
