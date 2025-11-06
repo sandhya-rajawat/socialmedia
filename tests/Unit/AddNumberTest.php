@@ -1,9 +1,8 @@
 <?php
- use App\Helpers\MathHelper;
-
- it('adds two numbers', function(){
-
-  $add=MathHelper::add(3,5);
-  expect($add)->toBe(8);
- });
-
+it('adds two numbers', function () {
+    function addTwoNumber($a, $b) {
+        return $a + $b;
+    }
+    $result = addTwoNumber(3, 5);
+    expect($result)->toBe(8);
+});

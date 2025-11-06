@@ -1,9 +1,7 @@
 <?php
 namespace Tests\Feature;
 use App\Models\User;
-
 use Illuminate\Support\Facades\Hash;
-
 it('logs in user successfully with correct credentials', function () {
     $password = "12345678";
     $email = 'sandhya9999@gmail.com';
