@@ -7,13 +7,13 @@ use App\Models\PostComment;
 use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
-  public function index(Request $request)
-{
-    $postId = $request->post_id;
-    $page = $request->page ?? 1;
-    $comments = PostComment::with(['user', 'replies.user', 'likes',])->latest()->paginate(3);
-    return view('comments.comment-list',compact('comments'));
-}
+    public function index()
+    {
+        $userId = Auth::id();
+        $posts = Post::with('user', 'likes', 'comments.user')->withCount('likes')->latest()->get();
+        return view('posts.index', compact('posts'));
+    }
+    
     public function store(PostRequest $request)
     {
         $post = Post::create([

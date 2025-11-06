@@ -1,10 +1,11 @@
-{{-- @foreach ($posts as $post)
+@foreach ($posts as $post)
     @include('posts.post', ['post' => $post])
+      
   
-@endforeach --}}
+@endforeach
 <script>
     $(document).ready(function() {
-        // console.log($);
+        console.log($);
         $(document).on('input', ".comment-input", function() {
             let $btn = $(this).closest(".input-group").find('.comment-submit');
             if ($(this).val().trim() !== '') {
@@ -19,7 +20,7 @@
             let postId = $(this).data("post-id");
             let $commentsBox = $(`#comments-${postId}`);
             $commentsBox.toggleClass('hidden');
-            // console.log("Toggled comments for post:", postId);
+            console.log("Toggled comments for post:", postId);
 
         });
         $(document).on('submit', '.form-submit', function(e) {
@@ -179,45 +180,5 @@
                 }
             })
         });
-        $(document).on('click', '.see-more-btn', function() {
-            let postId = $(this).data('post');
-            $('.extra-comment-' + postId).removeClass('hidden');
-            $(this).remove(); // Button hata de after showing
-        });
-        $(document).on('click', '.see-more', function() {
-            let $this = $(this); // button jise click kiya
-            let postId = $this.data('post-id'); // data-post-id attribute
-            let page = $this.data('page') || 2; // agar page data attribute na ho to 2 assume
-            let comment "{{ route('post.index', ':post') }}";
-            comment = comment.replace(':post', postId);
-
-            // console.log('Post ID:', postId, 'Next page:', page);
-
-            // AJAX call
-            $.ajax({
-                url:comment ,
-                type: 'GET',
-                data: {
-                    post_id: postId,
-                    page: page
-                },
-                success: function(response) {
-                    // append response to correct post container
-                    $('#comments-container-' + postId).append(response);
-
-                    // increment page for next request
-                    $this.data('page', page + 1);
-
-                    // hide button if no more comments returned
-                    if ($.trim(response) === '') {
-                        $this.remove();
-                    }
-                },
-                error: function(xhr) {
-                    console.error('Failed to load comments', xhr);
-                }
-            });
-        });
-
     });
 </script>
