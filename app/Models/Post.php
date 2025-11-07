@@ -4,8 +4,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\Models\PostComment;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Post extends Model
 {
+    use HasFactory;
     protected $fillable = ['user_id', 'content', 'like_count'];
     protected $appends = ['is_liked'];
     public function user()
