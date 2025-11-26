@@ -1,29 +1,29 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Http\Requests\PostCommentRequest;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\PostComment;
 use Illuminate\Support\Facades\Auth;
-class PostCommentController extends Controller
-{
-    public function store(PostCommentRequest $request, Post $post)
-    {
-        $comment = $post->comments()->create([
-            'user_id' => Auth::id(),
-            'content' => $request->content,
-            'parent_id' => $request->parent_id,
-        ]);
-        $comment->load('user');
+use App\Services\PostCommentService;
+
+
+class PostCommentController extends Controller {
+    protected  $commentService;
+    public function __construct(PostCommentService $commentService) {
+        $this->commentService = $commentService;
+    }
+    public function store(PostCommentRequest $request, Post $post) {
+        $comment = $this->commentService->storeComment($post,$request->validated());
         $commenthtml = view('comments.comment', [
             'comment' => $comment,
             'post' => $post,
         ])->render();
-
         return response()->json([
             'success' => true,
             'html' => $commenthtml,
         ]);
     }
-    
-}   
+}
